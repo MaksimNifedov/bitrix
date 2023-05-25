@@ -35,32 +35,18 @@ $APPLICATION->SetTitle("Главная страница");
             <div class="main-choice">
                 <h2 class="main-choice__title">Выбери <span>самого ценного игрока</span> сборной России в сезоне 2017/18</h2>
                 <div class="main-choice__pick">
-                    <div class="main-choice__items">
-                        <div class="main-choice__item">
-                            <div class="round-info-block">
-                                <div class="round-info-block__photo">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/photo.jpg" alt="Илья Сорокин">
-                                </div>
-                                <div class="round-info-block__name">Илья Сорокин</div>
-                                <div class="round-info-block__type">Вратарь</div>
-                            </div>            </div>
-                        <div class="main-choice__item">
-                            <div class="round-info-block">
-                                <div class="round-info-block__photo">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/photo.jpg" alt="Илья Сорокин">
-                                </div>
-                                <div class="round-info-block__name">Илья Сорокин</div>
-                                <div class="round-info-block__type">Вратарь</div>
-                            </div>            </div>
-                        <div class="main-choice__item">
-                            <div class="round-info-block">
-                                <div class="round-info-block__photo">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/photo.jpg" alt="Илья Сорокин">
-                                </div>
-                                <div class="round-info-block__name">Илья Сорокин</div>
-                                <div class="round-info-block__type">Вратарь</div>
-                            </div>            </div>
-                    </div>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "valuable_player",
+                        array(
+                            "IBLOCK_TYPE" => "people",
+                            "IBLOCK_ID" => 2,
+                            "NEWS_COUNT" => 3,
+                            "FIELD_CODE" => Array("NAME","PREVIEW_PICTURE","PROPERTY_TEAM_PLACE"),
+                            "SET_TITLE" => "N",
+                            "STRICT_SECTION_CHECK" => "N"
+                        )
+                    ) ?>
                     <button type="button" class="main-choice__button">
                         Проголосовать
                         <i class="fa fa-vk" aria-hidden="true"></i>
@@ -143,45 +129,18 @@ $APPLICATION->SetTitle("Главная страница");
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
                 </div>
             </h3>
-            <div class="main-jury__slider">
-                <div class="slider-jury">
-                    <div class="slider-jury__items">
-                        <div class="round-info-block">
-                            <div class="round-info-block__photo">
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/photo.jpg" alt="Иван Иванов">
-                            </div>
-                            <div class="round-info-block__name">Иван Иванов</div>
-                            <div class="round-info-block__type">Экс футболист</div>
-                            <hr class="round-info-block__hr">
-                            <div class="round-info-block__desc">
-                                Общественный деятель, чемпион мира по версии WBA
-                            </div>
-                        </div>
-                        <div class="round-info-block">
-                            <div class="round-info-block__photo">
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/photo.jpg" alt="Иван Иванов">
-                            </div>
-                            <div class="round-info-block__name">Иван Иванов</div>
-                            <div class="round-info-block__type">Экс футболист</div>
-                            <hr class="round-info-block__hr">
-                            <div class="round-info-block__desc">
-                                Общественный деятель, чемпион мира по версии WBA
-                            </div>
-                        </div>
-                        <div class="round-info-block">
-                            <div class="round-info-block__photo">
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/photo.jpg" alt="Иван Иванов">
-                            </div>
-                            <div class="round-info-block__name">Иван Иванов</div>
-                            <div class="round-info-block__type">Экс футболист</div>
-                            <hr class="round-info-block__hr">
-                            <div class="round-info-block__desc">
-                                Общественный деятель, чемпион мира по версии WBA
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:news.list",
+                "jury",
+                array(
+                    "IBLOCK_TYPE" => "people",
+                    "IBLOCK_ID" => 3,
+                    "NEWS_COUNT" => 3,
+                    "FIELD_CODE" => Array("NAME","PREVIEW_PICTURE","PROPERTY_POST", "DETAIL_TEXT"),
+                    "SET_TITLE" => "N",
+                    "STRICT_SECTION_CHECK" => "N"
+                )
+            ) ?>
         </div>
     </div>
     <div class="main-nomination" id="scroll-nomination">

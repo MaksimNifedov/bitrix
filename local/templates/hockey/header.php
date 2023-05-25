@@ -10,8 +10,11 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=1250, initial-scale=1">
     <title><? $APPLICATION->ShowTitle() ?></title>
-    <? $APPLICATION->ShowHead() ?>
+    <? $APPLICATION->ShowHead() ;?>
     <link href="<?= SITE_TEMPLATE_PATH ?>/assets/olimp.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body class="main default">
@@ -29,27 +32,19 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
                     </a>
                 </div>
                 <div class="header__menu">
-                    <nav class="header-menu">
-                        <ul class="vertical medium-horizontal menu header-menu__list">
-                            <li class="header-menu__item"><a href="#scroll-about" class="header-menu__link">О премии</a>
-                            </li>
-                            <li class="header-menu__item"><a href="#scroll-regulations" class="header-menu__link">Регламент</a>
-                            </li>
-                            <li class="header-menu__item"><a href="#scroll-jury" class="header-menu__link">Жюри</a></li>
-                            <li class="header-menu__item"><a href="#scroll-nomination" class="header-menu__link">Номинации</a>
-                            </li>
-                            <li class="header-menu__item"><a href="#scroll-nominees"
-                                                             class="header-menu__link">Лауреаты</a></li>
-                            <li class="header-menu__item"><a href="#scroll-news" class="header-menu__link">Новости</a>
-                            </li>
-                            <li class="header-menu__item"><a href="#scroll-media" class="header-menu__link">Медия</a>
-                            </li>
-                            <li class="header-menu__item"><a href="#scroll-contacts"
-                                                             class="header-menu__link">Контакты</a></li>
-                            <li class="header-menu__item"><a href="#scroll-partners"
-                                                             class="header-menu__link">Партнеры</a></li>
-                        </ul>
-                    </nav>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "menu_header",
+                        array(
+                            "ROOT_MENU_TYPE" => "top",
+                            "MAX_LEVEL" => "1",
+                            "CHILD_MENU_TYPE" => "top",
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "USE_EXT" => "N",
+                            "MENU_CACHE_TYPE" => "A"
+
+                        )
+                    ) ?>
                 </div>
             </div>
         </div>
