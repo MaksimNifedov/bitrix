@@ -18,6 +18,7 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
     <link href="<?= SITE_TEMPLATE_PATH ?>/assets/olimp.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body class="main default">
+<? $APPLICATION->ShowPanel()?>
 <div class="wrapper">
     <header class="header">
         <div class="header__left">

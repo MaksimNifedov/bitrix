@@ -305,68 +305,20 @@ $APPLICATION->SetTitle("Главная страница");
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
                 </div>
             </h3>
-            <div class="main-news__content">
-                <div class="main-news-list">
-                    <div class="main-news-list__items">
-                        <div class="main-news-list__item">
-                            <div class="main-news-list__photo"
-                                 style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg);"></div>
-                            <div class="main-news-list__info">
-                                <div class="main-news-list__date">02.10</div>
-                                <a href="#" class="main-news-list__title">
-                                    «Нью-Джерси» в овертайме победил «Берн» в выставочном матче
-                                </a>
-                            </div>
-                        </div>
-                        <div class="main-news-list__item">
-                            <div class="main-news-list__photo"
-                                 style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg);"></div>
-                            <div class="main-news-list__info">
-                                <div class="main-news-list__date">29.09</div>
-                                <a href="#" class="main-news-list__title">Когда лом ЦСКА сильнее кисти «Салавата». Это
-                                    вредно для всей
-                                    КХЛ</a>
-                            </div>
-                        </div>
-                        <div class="main-news-list__item">
-                            <div class="main-news-list__photo"
-                                 style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg);"></div>
-                            <div class="main-news-list__info">
-                                <div class="main-news-list__date">29.09</div>
-                                <a href="#" class="main-news-list__title">От $ 650 тыс. до $ 9,54 млн. Все зарплаты
-                                    россиян в НХЛ в
-                                    сезоне-2018/19</a>
-                            </div>
-                        </div>
-                        <div class="main-news-list__item">
-                            <div class="main-news-list__photo"
-                                 style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg);"></div>
-                            <div class="main-news-list__info">
-                                <div class="main-news-list__date">27.09</div>
-                                <a href="#" class="main-news-list__title">Чемпионат мира вернётся в «чёрный» Питер.
-                                    Главное не звать 14
-                                    энхаэловцев</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main-news-last-news">
-                    <div class="main-news-last-news__photo"
-                         style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg);"></div>
-                    <div class="main-news-last-news__info">
-                        <div class="main-news-last-news__date">02.10</div>
-                        <a class="main-news-last-news__title">«Сынок, это фантастика!» <br>«Сибирь» наконец-то победила</a>
-                    </div>
-                </div>
-            </div>
-            <div class="main-news__footer">
-                <button class="btn-brown-style main-news__btn">
-                    Читать все новости
-                    <span>
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </span>
-                </button>
-            </div>
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:news.list",
+                "news_list_mini",
+                array(
+                    "IBLOCK_TYPE" => "new",
+                    "IBLOCK_ID" => 12,
+                    "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
+                    "SET_TITLE" => "N",
+                    "STRICT_SECTION_CHECK" => "N",
+                    "ACTIVE_DATE_FORMAT" => "d.m",
+                    "DETAIL_URL" => "/news/detail.php?ID=#ELEMENT_ID#",
+                    "LIST_PAGE_URL" => "/news/"
+                )
+            ) ?>
         </div>
     </div>
     <div class="main-media" id="scroll-media">
@@ -407,104 +359,37 @@ $APPLICATION->SetTitle("Главная страница");
                         array(
                             "IBLOCK_TYPE" => "video",
                             "IBLOCK_ID" => 10,
-                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO" ),
+                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
                         )
                     ) ?>
                 </div>
                 <div class="main-media-photo">
-                    <div class="main-media-photo__left">
-                        <div class="main-media-info main-media-info--photo">
-                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/media-photo.svg" alt="Видео"
-                                 class="main-media-info__icon svg-inject-me">
-                            <h4 class="main-media-info__title">Фото</h4>
-                            <button type="button" class="main-media-info__all-btn" data-fancybox
-                                    data-src="#slider-media--photo">
-                                <span>Все фото</span>
-                                <span class="main-media-info__all-btn-icon">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </span>
-                            </button>
-                        </div>
-                        <a href="#" class="main-media-photo__picture" data-fancybox data-src="#slider-media--photo"
-                           style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video1.jpg)"></a>
-                    </div>
-                    <div class="main-media-photo__right">
-                        <a href="#" class="main-media-photo__top main-media-photo__picture" data-fancybox
-                           data-src="#slider-media--photo"
-                           style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video.jpg)"></a>
-                        <div class="main-media-photo__bottom">
-                            <a href="#" class="main-media-photo__picture" data-fancybox data-src="#slider-media--photo"
-                               style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video.jpg)"></a>
-                            <a href="#" class="main-media-photo__picture" data-fancybox data-src="#slider-media--photo"
-                               style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video2.jpg)"></a>
-                        </div>
-                    </div>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "media_photo_main",
+                        array(
+                            "IBLOCK_TYPE" => "Photos",
+                            "IBLOCK_ID" => 11,
+                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
+                            "SET_TITLE" => "N",
+                            "STRICT_SECTION_CHECK" => "N"
+                        )
+                    ) ?>
                 </div>
                 <div class="slider-media" id="slider-media--photo">
-                    <div class="slider-media__content">
-                        <h5 class="slider-media__title">Фото</h5>
-                        <button data-fancybox-close class="slider-media__close"></button>
-                        <div class="slider-media__wrapp">
-                            <div class="slider-media__big">
-                                <div class="slider-media__item">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg" alt="">
-
-                                </div>
-                                <div class="slider-media__item">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video.jpg" alt="">
-
-                                </div>
-                                <div class="slider-media__item">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video1.jpg" alt="">
-
-                                </div>
-                                <div class="slider-media__item">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video2.jpg" alt="">
-
-                                </div>
-                                <div class="slider-media__item">
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video2.jpg" alt="">
-
-                                </div>
-                            </div>
-                            <div class="slider-media__thumbnails">
-                                <div class="slider-media__item">
-                                    <div class="slider-media__thumbnail">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/news.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="slider-media__item">
-                                    <div class="slider-media__thumbnail">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="slider-media__item">
-                                    <div class="slider-media__thumbnail">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="slider-media__item">
-                                    <div class="slider-media__thumbnail">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video2.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="slider-media__item">
-                                    <div class="slider-media__thumbnail">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/trash/video2.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="slider-media__btn slider-media__btn--right">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                            <button type="submit" class="slider-media__btn slider-media__btn--left">
-                                <i class="fa fa-angle-left"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:news.list",
+                        "media_photo_inner",
+                        array(
+                            "IBLOCK_TYPE" => "Photos",
+                            "IBLOCK_ID" => 11,
+                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
+                            "SET_TITLE" => "N",
+                            "STRICT_SECTION_CHECK" => "N"
+                        )
+                    ) ?>
                 </div>
             </div>
         </div>

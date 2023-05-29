@@ -2,7 +2,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <div class="main-media-video__top">
     <div class="main-media-info main-media-info--video">
-        <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/svg/media-video.svg" alt="Видео"
+        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/media-video.svg" alt="Видео"
              class="main-media-info__icon svg-inject-me">
         <h4 class="main-media-info__title">Видео</h4>
         <button type="button" class="main-media-info__all-btn" data-fancybox

@@ -1,6 +1,6 @@
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<
+
 <div class="slider-media__content">
     <h5 class="slider-media__title">Видео</h5>
     <button data-fancybox-close class="slider-media__close"></button>
@@ -9,8 +9,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
             <?php foreach ($arResult["ITEMS"] as $arItem) {
                 $video = $arItem['PROPERTIES']['VIDEO']['VALUE'];
                 if ($video) {
-                    $path = parse_url($video, PHP_URL_PATH);
-                    $src = '/upload' . $path;
+                    $src = CFile::GetPath($video);
                 }
                 ?>
                 <div class="slider-media__item">
@@ -24,12 +23,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
         </div>
         <div class="slider-media__thumbnails">
-            <?php foreach ($arResult["ITEMS"] as $arItem) {
-            $video = $arItem['PROPERTIES']['VIDEO']['VALUE'];
-            if ($video) {
-                $path = parse_url($video, PHP_URL_PATH);
-                $src = '/upload' . $path;
-            } ?>
+            <?php foreach ($arResult["ITEMS"] as $arItem) {?>
             <div class="slider-media__item">
                 <div class="slider-media__thumbnail">
                     <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>" alt="">
@@ -38,8 +32,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                     </button>
                 </div>
             </div>
+            <?php } ?>
         </div>
-        <?php } ?>
         <button type="submit" class="slider-media__btn slider-media__btn--right">
             <i class="fa fa-angle-right"></i>
         </button>
