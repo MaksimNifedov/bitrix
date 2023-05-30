@@ -309,7 +309,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "bitrix:news.list",
                 "news_list_mini",
                 array(
-                    "IBLOCK_TYPE" => "new",
+                    "IBLOCK_TYPE" => "news",
                     "IBLOCK_ID" => 12,
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
                     "SET_TITLE" => "N",
