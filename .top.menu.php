@@ -2,19 +2,68 @@
 $aMenuLinks = Array(
 
 	Array(
-		"Главная", 
-		"/", 
+		"О премии",
+		"/#scroll-about",
 		Array(), 
 		Array(), 
 		"" 
 	),
 
 	Array(
-		"Профиль", 
-		"/personal/", 
+		"Регламент",
+		"/#scroll-regulations",
 		Array(), 
 		Array(), 
 		"" 
 	),
+    Array(
+        "Жюри",
+        "/#scroll-jury",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Номинации",
+        "/#scroll-nomination",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Лауреаты",
+        "/#scroll-nominees",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Новости",
+        "/#scroll-news",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Медия",
+        "/#scroll-media",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "/#scroll-contacts",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Партнеры",
+        "/#scroll-partners",
+        Array(),
+        Array(),
+        ""
+    ),
 );
 ?>
