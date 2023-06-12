@@ -5,29 +5,32 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
  * @global CMain $APPLICATION
  */
 
-global $APPLICATION;
-
+//delayed function must return a string
+if(empty($arResult))
+	return "";
 
 $strReturn = '';
+
+
 $strReturn .= '<nav> <ul class="breadcrumbs">';
 
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
 {
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
-
-	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
+	if($index != $itemSize-1)
 	{
-		$strReturn .= '
-		<li><a href="'.$arResult[$index]["LINK"].'">'.$title.'</a></li>';
+		$strReturn .= '<li>
+				<a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="item">
+				'.$title.'
+				</a> </li>';
 	}
 	else
 	{
-		$strReturn .= '
-		<li>'.$title.'</li>';
+		$strReturn .= '<li>'.$title.'</li>';
 	}
 }
 
-$strReturn .= '</ul></nav>';
+$strReturn .= '</ul></nav>';;
 
 return $strReturn;

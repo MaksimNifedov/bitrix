@@ -1,3 +1,5 @@
 <?
-$sSectionName="news";
+$arDirProperties = Array(
+   "ROBOTS" => "index, follow, detail"
+);
 ?>

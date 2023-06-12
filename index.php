@@ -45,7 +45,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "valuable_player",
                         array(
                             "IBLOCK_TYPE" => "people",
-                            "IBLOCK_ID" => 2,
+                            "IBLOCK_ID" => "valuable_player",
                             "NEWS_COUNT" => 3,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_TEAM_PLACE"),
                             "SET_TITLE" => "N",
@@ -153,7 +153,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "jury",
                 array(
                     "IBLOCK_TYPE" => "people",
-                    "IBLOCK_ID" => 3,
+                    "IBLOCK_ID" => "jury",
                     "NEWS_COUNT" => 3,
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                     "SET_TITLE" => "N",
@@ -176,7 +176,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "nomination",
                     array(
                         "IBLOCK_TYPE" => "nominations",
-                        "IBLOCK_ID" => 4,
+                        "IBLOCK_ID" => "nomination",
                         "NEWS_COUNT" => 7,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_NOTE", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -213,7 +213,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => 6,
+                        "IBLOCK_ID" => "most_valuable_player",
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -232,7 +232,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => 7,
+                        "IBLOCK_ID" => "gentleman_year",
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -252,7 +252,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => 8,
+                        "IBLOCK_ID" => "best_newcomer",
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -277,7 +277,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "quotes",
                     array(
                         "IBLOCK_TYPE" => "quotes",
-                        "IBLOCK_ID" => 9,
+                        "IBLOCK_ID" => "quotes",
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
                         "STRICT_SECTION_CHECK" => "N"
@@ -310,7 +310,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "news_list_mini",
                 array(
                     "IBLOCK_TYPE" => "news",
-                    "IBLOCK_ID" => 12,
+                    "IBLOCK_ID" => "news",
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
                     "SET_TITLE" => "N",
                     "STRICT_SECTION_CHECK" => "N",
@@ -345,7 +345,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_main",
                         array(
                             "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => 10,
+                            "IBLOCK_ID" => "video",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -358,7 +358,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_inner",
                         array(
                             "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => 10,
+                            "IBLOCK_ID" => "video",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -371,7 +371,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_main",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => 11,
+                            "IBLOCK_ID" => "photo",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -384,7 +384,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_inner",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => 11,
+                            "IBLOCK_ID" =>  "photo",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"

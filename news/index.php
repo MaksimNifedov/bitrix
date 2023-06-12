@@ -19,7 +19,7 @@ $APPLICATION->SetTitle("Новости");
             "page_news",
             array(
                 "IBLOCK_TYPE" => "news",
-                "IBLOCK_ID" => "12",
+                "IBLOCK_ID" => "news",
                 "SET_TITLE" => "N",
                 "NEWS_COUNT" => "3",
                 "FIELD_CODE" => array(

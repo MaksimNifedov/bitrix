@@ -1,6 +1,6 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
-$APPLICATION->SetTitle($arResult["NAME"]); ?>
+?>
 <h1 class="title title--green title--center">
     <?= $arResult["NAME"] ?>
     <div class="title__line">
