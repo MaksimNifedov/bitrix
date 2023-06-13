@@ -1,10 +1,33 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$elementId = $_GET["ID"]; // ID текущего элемента
+if (!CModule::IncludeModule("iblock")) {
+    ShowError(GetMessage("IBLOCK_MODULE_NOT_INSTALLED"));
+    return;
+}
+
+$arFilter = Array("IBLOCK_ID" => 14, "ACTIVE" => "Y");
+$arSelect = Array("ID");
+$ElementID = $_GET['ID'];
+
+$resPrev = CIBlockElement::GetList(
+    Array("DISPLAY_ACTIVE_FROM" => "DESC"),
+    $arFilter,
+    false,
+    Array('nPageSize' => 1, 'nElementID' => $ElementID),
+    $arSelect
+);
+$resNext = CIBlockElement::GetList(
+    Array("DISPLAY_ACTIVE_FROM" => "ASC"),
+    $arFilter,
+    false,
+    Array('nPageSize' => 1, 'nElementID' => $ElementID),
+    $arSelect
+);
 ?>
 
     <div class="wrapp">
         <?
-
         $APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb", 
 	"breadcrumbs_news", 
@@ -76,6 +99,8 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 	false
 );?>
         <div class="news-next-prev">
+            <?php if ($ar_fields_prev = $resPrev->GetNext()) {
+    if($ElementID != $ar_fields_prev['ID']) {?>
             <div class="news-next-prev__item">
                 <div class="news-next-prev__title">
                     Предыдущая новость
@@ -85,7 +110,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 	"mini_detail_news", 
 	array(
 		"IBLOCK_ID" => "news",
-		"ELEMENT_ID" => $_GET["ID"]-1,
+		"ELEMENT_ID" => $ar_fields_prev['ID'],
 		"FIELD_CODE" => array(
 			0 => "NAME",
 			1 => "PREVIEW_PICTURE",
@@ -140,6 +165,10 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 	false
 ); ?>
             </div>
+    <?php }}?>
+            <?php if ($ar_fields_next = $resNext->GetNext()) {
+    if($ElementID != $ar_fields_next['ID']) {?>
+
             <div class="news-next-prev__item">
                 <div class="news-next-prev__title">
                     Следующая новость
@@ -149,7 +178,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 	"mini_detail_news", 
 	array(
 		"IBLOCK_ID" => "news",
-		"ELEMENT_ID" => $_GET["ID"]+1,
+		"ELEMENT_ID" => $ar_fields_next['ID'],
 		"FIELD_CODE" => array(
 			0 => "NAME",
 			1 => "PREVIEW_PICTURE",
@@ -204,6 +233,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 	false
 ); ?>
             </div>
+    <?php }}?>
         </div>
 
 

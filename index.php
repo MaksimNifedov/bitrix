@@ -20,16 +20,16 @@ $APPLICATION->SetTitle("Главная страница");
                                  class="svg-inject-me">
                         </div>
                     </h1>
-                    <p>
-                        Общероссийская общественная организация «Федерация хоккея России»<br>
-                        (далее – ФХР) и официальный партнёр ФХР и национальной сборной России по хоккею Букмекерская
-                        компания «Лига Ставок»
-                        (ООО «ПМБК») учреждают премию «Герои Хоккея» (далее – Премия), которая определяет членов
-                        национальной сборной России по
-                        хоккею, продемонстрировавших в отчетном спортивном сезоне лучшие аспекты и показатели по
-                        соответствующей номинации в
-                        матчах с участием национальной сборной России по хоккею.
-                    </p>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__premium__text.php",
+                        ),
+                        false
+                    ); ?>
+
                 </div>
                 <div class="main-about__round">
                     <div class="main-about-round main-about-round--logo"></div>
@@ -37,7 +37,16 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
             </div>
             <div class="main-choice">
-                <h2 class="main-choice__title">Выбери <span>самого ценного игрока</span> сборной России в сезоне 2017/18
+                <h2 class="main-choice__title">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__vote__player.php",
+                        ),
+                        false
+                    ); ?>
                 </h2>
                 <div class="main-choice__pick">
                     <? $APPLICATION->IncludeComponent(
@@ -51,11 +60,21 @@ $APPLICATION->SetTitle("Главная страница");
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
                         )
-                    ) ?>
-                    <button type="button" class="main-choice__button">
-                        Проголосовать
-                        <i class="fa fa-vk" aria-hidden="true"></i>
-                    </button>
+                    ); ?>
+
+                        <button type="button" class="main-choice__button">
+                            <? $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => "/local/includes/main__vote__link.php",
+                                ),
+                                false
+                            ); ?>
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                        </button>
+
                 </div>
             </div>
         </div>
@@ -384,7 +403,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_inner",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" =>  "photo",
+                            "IBLOCK_ID" => "photo",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
