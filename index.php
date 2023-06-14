@@ -456,25 +456,30 @@ $APPLICATION->SetTitle("Главная страница");
                     </div>
                 </div>
                 <div class="main-contact__right">
-                    <form method="post" class="contact-feedback-form">
-                        <h4 class="contact-feedback-form__title">Оставить заявку</h4>
-                        <div class="contact-feedback-form__inputs">
-                            <div>
-                                <label for="contact-feedback-name" class="contact-feedback-form__label">Имя</label>
-                                <input id="contact-feedback-name" name="name" type="text" maxlength="100" required>
-                            </div>
-                            <div>
-                                <label for="contact-feedback-email" class="contact-feedback-form__label">Почта</label>
-                                <input id="contact-feedback-email" name="email" type="email" maxlength="100" required>
-                            </div>
-                        </div>
-                        <div class="contact-feedback-form__area">
-                            <label for="contact-feedback-message" class="contact-feedback-form__label">Сообщение</label>
-                            <textarea name="message" id="contact-feedback-message" required></textarea>
-                        </div>
-
-                        <button class="contact-feedback-form__btn">Отправить</button>
-                    </form>
+                    <?$APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", Array(
+                        "CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                        "CACHE_TYPE" => "A",	// Тип кеширования
+                        "CHAIN_ITEM_LINK" => "",	// Ссылка на дополнительном пункте в навигационной цепочке
+                        "CHAIN_ITEM_TEXT" => "",	// Название дополнительного пункта в навигационной цепочке
+                        "EDIT_URL" => "",	// Страница редактирования результата
+                        "IGNORE_CUSTOM_TEMPLATE" => "N",	// Игнорировать свой шаблон
+                        "LIST_URL" => "",	// Страница со списком результатов
+                        "SEF_MODE" => "N",	// Включить поддержку ЧПУ
+                        "SUCCESS_URL" => "",	// Страница с сообщением об успешной отправке
+                        "USE_EXTENDED_ERRORS" => "Y",	// Использовать расширенный вывод сообщений об ошибках
+                        "VARIABLE_ALIASES" => array(
+                            "RESULT_ID" => "RESULT_ID",
+                            "WEB_FORM_ID" => "WEB_FORM_ID",
+                        ),
+                        "WEB_FORM_ID" => "3",	// ID веб-формы
+                        "AJAX_MODE" => "Y",
+                        "AJAX_OPTION_SHADOW" => "N",
+                        "AJAX_OPTION_JUMP" => "Y",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                    ),
+                        false
+                    );?>
                 </div>
             </div>
         </div>
