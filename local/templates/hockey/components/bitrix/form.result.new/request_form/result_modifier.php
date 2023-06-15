@@ -9,15 +9,15 @@ $arResult['funcGetInputHtml'] = function($question, $arrVALUES, $namepole) {
     switch ($namepole)
     {
         case 'Имя':
-            $input = "<input id=\"contact-feedback-name\" name=\"name\" type=\"text\"  {$required} value=\"{$value}\">";
+            $input = "<input  id=\"contact-feedback-name\" name=\"{$name}\" type=\"text\"  {$required} value=\"{$value}\">";
             break;
 
         // case 'text':
         case 'Почта':
-            $input = "<input id=\"contact-feedback-email\" name=\"email\" type=\"email\"  {$required} value=\"{$value}\">";
+            $input = "<input id=\"contact-feedback-email\" name=\"{$name}\" type=\"email\"  {$required} value=\"{$value}\">";
             break;
         case 'Сообщение':
-            $input = "<textarea id=\"contact-feedback-message\" name=\"message\" type=\"email\"  {$required} >{$value}</textarea>";
+            $input = "<textarea id=\"contact-feedback-message\" name=\"{$name}\" type=\"email\"  {$required} >{$value}</textarea>";
             break;
         default:
             $input ='';

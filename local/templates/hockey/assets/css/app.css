@@ -15492,3 +15492,7 @@ h1, h2, h3, h4, h5, h6 {
 button.main-choice__button > a {
     color: white;
 }
+
+.red-on-hover:hover img {
+    filter: brightness(100%) saturate(200%) hue-rotate(90deg);
+}

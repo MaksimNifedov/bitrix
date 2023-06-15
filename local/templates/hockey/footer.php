@@ -10,24 +10,21 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
             </div>
             <div class="footer__socials">
                 <div class="footer-socials">
-                    <a href="https://vk.com/fhr" target="_blank">
-                        <i class="fa fa-vk" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.facebook.com/Russiahockey/" target="_blank">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://twitter.com/russiahockey" target="_blank">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <!-- <a href="https://ok.ru/russiahockey" target="_blank">
-                        <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
-                    </a> -->
-                    <a href="https://www.youtube.com/c/RussiaHockey" target="_blank">
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.instagram.com/russiahockey/" target="_blank">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:highloadblock.list",
+                        "my_hl",
+                        Array(
+                            "BLOCK_ID" => "2",
+                            "CHECK_PERMISSIONS" => "N",
+                            "COMPONENT_TEMPLATE" => "my_hl",
+                            "DETAIL_URL" => "",
+                            "FILTER_NAME" => "",
+                            "PAGEN_ID" => "page",
+                            "ROWS_PER_PAGE" => "",
+                            "SORT_FIELD" => "UF_NAME",
+                            "SORT_ORDER" => "DESC"
+                        )
+                    );?>
                 </div>            </div>
             <div class="small-4">
                 При использовании материалов ссылка на сайт официальный сайт Федерации Хоккея России обязательна
