@@ -62,18 +62,18 @@ $APPLICATION->SetTitle("Главная страница");
                         )
                     ); ?>
 
-                        <button type="button" class="main-choice__button">
-                            <? $APPLICATION->IncludeComponent(
-                                "bitrix:main.include",
-                                "",
-                                array(
-                                    "AREA_FILE_SHOW" => "file",
-                                    "PATH" => "/local/includes/main__vote__link.php",
-                                ),
-                                false
-                            ); ?>
-                            <i class="fa fa-vk" aria-hidden="true"></i>
-                        </button>
+                    <button type="button" class="main-choice__button">
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => "/local/includes/main__vote__link.php",
+                            ),
+                            false
+                        ); ?>
+                        <i class="fa fa-vk" aria-hidden="true"></i>
+                    </button>
 
                 </div>
             </div>
@@ -376,13 +376,65 @@ $APPLICATION->SetTitle("Главная страница");
                         "bitrix:news.list",
                         "media_video_inner",
                         array(
-                            "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => "video",
-                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
+                            "IBLOCK_TYPE" => "Video",
+                            "IBLOCK_ID" => "17",
+                            "FIELD_CODE" => array(
+                                0 => "NAME",
+                                1 => "PREVIEW_PICTURE",
+                                2 => "PROPERTY_VIDEO",
+                                3 => "",
+                            ),
                             "SET_TITLE" => "N",
-                            "STRICT_SECTION_CHECK" => "N"
-                        )
-                    ) ?>
+                            "STRICT_SECTION_CHECK" => "N",
+                            "COMPONENT_TEMPLATE" => "media_video_inner",
+                            "NEWS_COUNT" => "20",
+                            "SORT_BY1" => "ACTIVE_FROM",
+                            "SORT_ORDER1" => "DESC",
+                            "SORT_BY2" => "SORT",
+                            "SORT_ORDER2" => "ASC",
+                            "FILTER_NAME" => "",
+                            "PROPERTY_CODE" => array(
+                                0 => "video",
+                                1 => "",
+                            ),
+                            "CHECK_DATES" => "Y",
+                            "DETAIL_URL" => "",
+                            "AJAX_MODE" => "N",
+                            "AJAX_OPTION_JUMP" => "N",
+                            "AJAX_OPTION_STYLE" => "Y",
+                            "AJAX_OPTION_HISTORY" => "N",
+                            "AJAX_OPTION_ADDITIONAL" => "",
+                            "CACHE_TYPE" => "A",
+                            "CACHE_TIME" => "36000000",
+                            "CACHE_FILTER" => "N",
+                            "CACHE_GROUPS" => "Y",
+                            "PREVIEW_TRUNCATE_LEN" => "",
+                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                            "SET_BROWSER_TITLE" => "Y",
+                            "SET_META_KEYWORDS" => "Y",
+                            "SET_META_DESCRIPTION" => "Y",
+                            "SET_LAST_MODIFIED" => "N",
+                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                            "ADD_SECTIONS_CHAIN" => "Y",
+                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                            "PARENT_SECTION" => "",
+                            "PARENT_SECTION_CODE" => "",
+                            "INCLUDE_SUBSECTIONS" => "Y",
+                            "PAGER_TEMPLATE" => ".default",
+                            "DISPLAY_TOP_PAGER" => "N",
+                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                            "PAGER_TITLE" => "Новости",
+                            "PAGER_SHOW_ALWAYS" => "N",
+                            "PAGER_DESC_NUMBERING" => "N",
+                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                            "PAGER_SHOW_ALL" => "N",
+                            "PAGER_BASE_LINK_ENABLE" => "N",
+                            "SET_STATUS_404" => "N",
+                            "SHOW_404" => "N",
+                            "MESSAGE_404" => ""
+                        ),
+                        false
+                    ); ?>
                 </div>
                 <div class="main-media-photo">
                     <? $APPLICATION->IncludeComponent(
@@ -431,47 +483,36 @@ $APPLICATION->SetTitle("Главная страница");
                         <h4 class="contact-info__title">Пресс-центр<br> Федерации Хоккея России</h4>
 
                         <div class="contact-info__content">
-                            <div class="contact-info__mail">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <a class="" href="mailto:media@fhr.ru">
-                                    media@fhr.ru
-                                </a>
-                            </div>
-
-                            <div class="contact-info__phone">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                <a class="" href="tel:84956477111">
-                                    +7 (495) 647-71-11
-                                </a>
-                            </div>
-
-                            <div class="contact-info__address">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span>
-                                        115280, Россия, Москва,<br>
-                                        Автозаводская ул., д. 21 к. 1
-                                    </span>
-                            </div>
+                            <?$APPLICATION->IncludeComponent(
+                                'digital:hl.list', // Замените 'yournamespace' на ваше пространство имён (если требуется)
+                                'my_hl',
+                                array(
+                                    'HLBLOCK_ID' => 3, // Замените 123 на ID вашего highload-блока
+                                    'CACHE_TYPE' => 'A',
+                                    'CACHE_TIME' => 36000000,
+                                ),
+                                false
+                            );?>
                         </div>
                     </div>
                 </div>
                 <div class="main-contact__right">
-                    <?$APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", Array(
-                        "CACHE_TIME" => "3600",	// Время кеширования (сек.)
-                        "CACHE_TYPE" => "A",	// Тип кеширования
-                        "CHAIN_ITEM_LINK" => "",	// Ссылка на дополнительном пункте в навигационной цепочке
-                        "CHAIN_ITEM_TEXT" => "",	// Название дополнительного пункта в навигационной цепочке
-                        "EDIT_URL" => "",	// Страница редактирования результата
-                        "IGNORE_CUSTOM_TEMPLATE" => "N",	// Игнорировать свой шаблон
-                        "LIST_URL" => "",	// Страница со списком результатов
-                        "SEF_MODE" => "N",	// Включить поддержку ЧПУ
-                        "SUCCESS_URL" => "",	// Страница с сообщением об успешной отправке
-                        "USE_EXTENDED_ERRORS" => "Y",	// Использовать расширенный вывод сообщений об ошибках
+                    <? $APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", array(
+                        "CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                        "CACHE_TYPE" => "A",    // Тип кеширования
+                        "CHAIN_ITEM_LINK" => "",    // Ссылка на дополнительном пункте в навигационной цепочке
+                        "CHAIN_ITEM_TEXT" => "",    // Название дополнительного пункта в навигационной цепочке
+                        "EDIT_URL" => "",    // Страница редактирования результата
+                        "IGNORE_CUSTOM_TEMPLATE" => "N",    // Игнорировать свой шаблон
+                        "LIST_URL" => "",    // Страница со списком результатов
+                        "SEF_MODE" => "N",    // Включить поддержку ЧПУ
+                        "SUCCESS_URL" => "",    // Страница с сообщением об успешной отправке
+                        "USE_EXTENDED_ERRORS" => "Y",    // Использовать расширенный вывод сообщений об ошибках
                         "VARIABLE_ALIASES" => array(
                             "RESULT_ID" => "RESULT_ID",
                             "WEB_FORM_ID" => "WEB_FORM_ID",
                         ),
-                        "WEB_FORM_ID" => "3",	// ID веб-формы
+                        "WEB_FORM_ID" => "3",    // ID веб-формы
                         "AJAX_MODE" => "Y",
                         "AJAX_OPTION_SHADOW" => "N",
                         "AJAX_OPTION_JUMP" => "Y",
@@ -479,7 +520,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "AJAX_OPTION_HISTORY" => "N",
                     ),
                         false
-                    );?>
+                    ); ?>
                 </div>
             </div>
         </div>

@@ -11,19 +11,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
             <div class="footer__socials">
                 <div class="footer-socials">
                     <?$APPLICATION->IncludeComponent(
-                        "bitrix:highloadblock.list",
-                        "my_hl",
-                        Array(
-                            "BLOCK_ID" => "2",
-                            "CHECK_PERMISSIONS" => "N",
-                            "COMPONENT_TEMPLATE" => "my_hl",
-                            "DETAIL_URL" => "",
-                            "FILTER_NAME" => "",
-                            "PAGEN_ID" => "page",
-                            "ROWS_PER_PAGE" => "",
-                            "SORT_FIELD" => "UF_NAME",
-                            "SORT_ORDER" => "DESC"
-                        )
+                        'digital:hl.list', // Замените 'yournamespace' на ваше пространство имён (если требуется)
+                        '.default',
+                        array(
+                            'HLBLOCK_ID' => 2, // Замените 123 на ID вашего highload-блока
+                            'CACHE_TYPE' => 'A',
+                            'CACHE_TIME' => 36000000,
+                        ),
+                        false
                     );?>
                 </div>            </div>
             <div class="small-4">

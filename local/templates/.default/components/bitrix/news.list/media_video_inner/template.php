@@ -7,16 +7,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
     <div class="slider-media__wrapp">
         <div class="slider-media__big">
             <?php foreach ($arResult["ITEMS"] as $arItem) {
-                $video = $arItem['PROPERTIES']['VIDEO']['VALUE'];
-                if ($video) {
-                    $src = CFile::GetPath($video);
-                }
+//                print_r($arItem['PROPERTY_VIDEO_VALUE']['path']);
                 ?>
                 <div class="slider-media__item">
 
-                    <video controls poster="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>"
+                    <video src="<?= $arItem['PROPERTY_VIDEO_VALUE']['path'] ?>"controls poster="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>"
                            preload="none">
-                        <source src="<?= $src ?>">
+                        <source src="<?= $arItem['PROPERTY_VIDEO_VALUE']['path'] ?>">
                     </video>
                 </div>
             <?php } ?>
