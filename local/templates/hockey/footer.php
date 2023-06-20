@@ -1,16 +1,25 @@
 <?php
-if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 </div>
 <div class="footer">
     <div class="wrapp footer__wrapp">
         <div class="grid-x grid-padding-x footer__content">
             <div class="small-4 footer__copyright">
-                © Премия "Герои Хоккея"<br>
-                Все права защищены
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/footer__text1.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </div>
             <div class="footer__socials">
                 <div class="footer-socials">
-                    <?$APPLICATION->IncludeComponent(
+                    <? $APPLICATION->IncludeComponent(
                         'digital:hl.list', // Замените 'yournamespace' на ваше пространство имён (если требуется)
                         '.default',
                         array(
@@ -19,10 +28,21 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
                             'CACHE_TIME' => 36000000,
                         ),
                         false
-                    );?>
-                </div>            </div>
+                    ); ?>
+                </div>
+            </div>
             <div class="small-4">
-                При использовании материалов ссылка на сайт официальный сайт Федерации Хоккея России обязательна
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/footer__text2.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </div>
         </div>
     </div>
