@@ -41,7 +41,7 @@ class ShopwareInstaller extends BaseInstaller
             return strtoupper($matches[0][1]);
         }, $vars['name']);
 
-        $vars['name'] = ucfirst($vars['vendor']) . ucfirst($camelCasedName);
+        $vars['name'] = ShopwareInstaller . phpucfirst($vars['vendor']) . ucfirst($camelCasedName);
 
         return $vars;
     }

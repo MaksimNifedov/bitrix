@@ -23,7 +23,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         'digital:hl.list', // Замените 'yournamespace' на ваше пространство имён (если требуется)
                         '.default',
                         array(
-                            'HLBLOCK_ID' => 2, // Замените 123 на ID вашего highload-блока
+                            'HLBLOCK_ID' => HLSocials, // Замените 123 на ID вашего highload-блока
                             'CACHE_TYPE' => 'A',
                             'CACHE_TIME' => 36000000,
                         ),

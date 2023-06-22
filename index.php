@@ -22,16 +22,16 @@ $APPLICATION->SetTitle("Главная страница");
                         </div>
                     </h1>
                     <? $APPLICATION->IncludeComponent(
-	"bitrix:main.include", 
-	".default", 
-	array(
-		"AREA_FILE_SHOW" => "file",
-		"PATH" => "/local/includes/main__premium__text.php",
-		"COMPONENT_TEMPLATE" => ".default",
-		"EDIT_TEMPLATE" => ""
-	),
-	false
-); ?>
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__premium__text.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
 
                 </div>
                 <div class="main-about__round">
@@ -82,11 +82,11 @@ $APPLICATION->SetTitle("Главная страница");
             </div>
         </div>
     </div>
-    <div class="main-award-regulations" id="scroll-regulations" >
+    <div class="main-award-regulations" id="scroll-regulations">
 
         <div class="wrapp main-award-regulations__wrapp">
             <h3 class="main-award-regulations__title">
-                <?$APPLICATION->IncludeComponent(
+                <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     "",
                     array(
@@ -95,7 +95,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "EDIT_TEMPLATE" => ""
                     ),
                     false
-                );?>
+                ); ?>
             </h3>
             <button data-src="#award-regulations" class="btn-brown-style main-award-regulations__button">
                 Ознакомиться
@@ -107,7 +107,7 @@ $APPLICATION->SetTitle("Главная страница");
     </div>
     <div class="award-regulations" id="award-regulations">
         <h5 class="title title--green award-regulations__title">
-            <?$APPLICATION->IncludeComponent(
+            <? $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
                 array(
@@ -116,7 +116,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "EDIT_TEMPLATE" => ""
                 ),
                 false
-            );?>
+            ); ?>
             <div class="title__line">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
             </div>
@@ -187,7 +187,7 @@ $APPLICATION->SetTitle("Главная страница");
                     ),
                     false
                 ); ?>
-                </p>
+            </p>
 
             <p>
                 <b class="color-green">
@@ -202,7 +202,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b>
+                </b>
                 <br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
@@ -229,7 +229,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b><br>
+                </b><br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
@@ -256,7 +256,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b><br>
+                </b><br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
@@ -282,7 +282,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b><br>
+                </b><br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
@@ -309,7 +309,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b><br>
+                </b><br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
@@ -335,7 +335,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b><br>
+                </b><br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
@@ -361,7 +361,7 @@ $APPLICATION->SetTitle("Главная страница");
                         ),
                         false
                     ); ?>
-                    </b><br>
+                </b><br>
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
