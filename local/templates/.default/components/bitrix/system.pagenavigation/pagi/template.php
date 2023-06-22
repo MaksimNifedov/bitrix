@@ -22,10 +22,14 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["N
                 <? if ($arResult["NavPageNomer"] > 2): ?>
                     <li>
                         <a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>"><i
-                                    class="fa fa-angle-left"></i></a></li>
+                                    class="fa fa-angle-left"></i></a>
+                    </li>
                 <? else: ?>
-                    <li><a href="<?= $arResult["sUrlPath"] ?><?= $strNavQueryStringFull ?>"><i
-                                    class="fa fa-angle-left"></i></a></li>
+                    <li>
+                        <a href="<?= $arResult["sUrlPath"] ?><?= $strNavQueryStringFull ?>">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    </li>
                 <? endif ?>
             <? endif ?>
         <? endif ?>
@@ -46,7 +50,8 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["N
         <? if ($arResult["NavPageNomer"] < $arResult["NavPageCount"]): ?>
             <li class="pagination__next">
                 <a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] + 1) ?>"><i
-                            class="fa fa-angle-right"></i></a</li>
+                            class="fa fa-angle-right"></i></a>
+            </li>
         <? endif ?>
     </ul>
 </nav>

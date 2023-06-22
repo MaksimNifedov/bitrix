@@ -1,5 +1,8 @@
 <?php
-if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+if(!empty($arResult["ITEMS"] )){
+    
+?>
 <div class="main-news__content">
     <div class="main-news-list">
         <div class="main-news-list__items">
@@ -25,8 +28,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
              style="background-image: url(<?= $arResult["ITEMS"][0]["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>);"></div>
         <div class="main-news-last-news__info">
             <div class="main-news-last-news__date"><?= $arResult["ITEMS"][0]["DISPLAY_ACTIVE_FROM"] ?></div>
-            <a href="<?= $arResult["ITEMS"][0]["DETAIL_PAGE_URL"] ?>" class="main-news-last-news__title">«Сынок, это
-                фантастика!» <br>«Сибирь» наконец-то победила</a>
+            <a href="<?= $arResult["ITEMS"][0]["DETAIL_PAGE_URL"] ?>" class="main-news-last-news__title"> <?= $arItem["NAME"] ?></a>
         </div>
     </div>
 </div>
@@ -38,5 +40,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         </span>
     </button>
 </div>
+<?php }?>
 
 

@@ -3,6 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Главная");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 $APPLICATION->SetTitle("Главная страница");
+
 ?>
     <div class="main-about-block" id="scroll-about">
         <div class="main-about-block__decor">
@@ -20,16 +21,18 @@ $APPLICATION->SetTitle("Главная страница");
                                  class="svg-inject-me">
                         </div>
                     </h1>
-                    <p>
-                        Общероссийская общественная организация «Федерация хоккея России»<br>
-                        (далее – ФХР) и официальный партнёр ФХР и национальной сборной России по хоккею Букмекерская
-                        компания «Лига Ставок»
-                        (ООО «ПМБК») учреждают премию «Герои Хоккея» (далее – Премия), которая определяет членов
-                        национальной сборной России по
-                        хоккею, продемонстрировавших в отчетном спортивном сезоне лучшие аспекты и показатели по
-                        соответствующей номинации в
-                        матчах с участием национальной сборной России по хоккею.
-                    </p>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__premium__text.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+
                 </div>
                 <div class="main-about__round">
                     <div class="main-about-round main-about-round--logo"></div>
@@ -37,7 +40,16 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
             </div>
             <div class="main-choice">
-                <h2 class="main-choice__title">Выбери <span>самого ценного игрока</span> сборной России в сезоне 2017/18
+                <h2 class="main-choice__title">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__vote__player.php",
+                        ),
+                        false
+                    ); ?>
                 </h2>
                 <div class="main-choice__pick">
                     <? $APPLICATION->IncludeComponent(
@@ -45,24 +57,46 @@ $APPLICATION->SetTitle("Главная страница");
                         "valuable_player",
                         array(
                             "IBLOCK_TYPE" => "people",
-                            "IBLOCK_ID" => 2,
+                            "IBLOCK_ID" => "valuable_player",
                             "NEWS_COUNT" => 3,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_TEAM_PLACE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
                         )
-                    ) ?>
+                    ); ?>
+
                     <button type="button" class="main-choice__button">
-                        Проголосовать
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => "/local/includes/main__vote__link.php",
+                            ),
+                            false
+                        ); ?>
                         <i class="fa fa-vk" aria-hidden="true"></i>
                     </button>
+
                 </div>
             </div>
         </div>
     </div>
     <div class="main-award-regulations" id="scroll-regulations">
+
         <div class="wrapp main-award-regulations__wrapp">
-            <h3 class="main-award-regulations__title">Регламент премии</h3>
+            <h3 class="main-award-regulations__title">
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__regulations__title.php",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
+            </h3>
             <button data-src="#award-regulations" class="btn-brown-style main-award-regulations__button">
                 Ознакомиться
                 <span class="main-award-regulations__button-icon">
@@ -73,69 +107,272 @@ $APPLICATION->SetTitle("Главная страница");
     </div>
     <div class="award-regulations" id="award-regulations">
         <h5 class="title title--green award-regulations__title">
-            Регламент премии «Герои Хоккея»
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => "/local/includes/main__regulations__title__modal.php",
+                    "EDIT_TEMPLATE" => ""
+                ),
+                false
+            ); ?>
             <div class="title__line">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
             </div>
         </h5>
         <div class="award-regulations__content">
             <h6>О Премии</h6>
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                ".default",
+                array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => "/local/includes/main__premium__text.php",
+                    "COMPONENT_TEMPLATE" => ".default",
+                    "EDIT_TEMPLATE" => ""
+                ),
+                false
+            ); ?>
+
+            <h6>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__purpose__award__title.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
+            </h6>
             <p>
-                Общероссийская общественная организация «Федерация хоккея России» (далее – ФХР) и официальный партнёр
-                ФХР и национальной
-                сборной России по хоккею Букмекерская компания «Лига Ставок» (ООО «ПМБК») учреждают премию «Герои
-                Хоккея» (далее – Премия), которая определяет членов национальной сборной России по хоккею,
-                продемонстрировавших в отчетном спортивном сезоне лучшие
-                аспекты и показатели по соответствующей номинации в матчах с участием национальной сборной России по
-                хоккею.
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__purpose__award__text.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </p>
 
-            <h6>Цель проведения Премии</h6>
+            <h6>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__title.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
+            </h6>
             <p>
-                Проведение Премии осуществляется в целях пропаганды честной спортивной борьбы, популяризации и развития
-                хоккея в Российской Федерации, повышения зрелищности матчей с участием национальной сборной России по
-                хоккею и стимулирования профессиональной деятельности спортсменов, тренеров и специалистов в области
-                хоккея.
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__list.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </p>
 
-            <h6>Номинации Премии</h6>
-            <p>Премия включает следующие независимые номинации: </p>
+            <p>
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title1.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b>
+                <br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text1.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
+            </p>
+            <p>
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title2.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b><br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text2.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
 
-            <p>
-                <b class="color-green">Самый ценный игрок</b><br>
-                награждается игрок, который внёс наибольший вклад в успехи национальной сборной России по хоккею
             </p>
             <p>
-                <b class="color-green">Джентльмен года</b><br>
-                награждается игрок, продемонстрировавший образец честной спортивной борьбы и джентльменского поведения
-                в сочетании с высоким игровым мастерством.
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title3.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b><br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text3.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </p>
             <p>
-                <b class="color-green">Лучший новичок</b><br>
-                награждается игрок, наиболее ярко проявивший себя среди тех, кто провел первый сезон в составе
-                национальной сборной России по хоккею.
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title4.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b><br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text4.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
+
             </p>
             <p>
-                <b class="color-green">Лучший бомбардир</b><br>
-                награждается игрок, набравший наибольшее количество очков по системе гол+пас в матчах за национальной
-                сборной России по хоккею.
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title5.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b><br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text5.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </p>
             <p>
-                <b class="color-green">Лучший снайпер</b><br>
-                награждается игрок, забросивший наибольшее число шайб среди всех игроков в матчах за национальной
-                сборной России по хоккею.
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title6.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b><br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text6.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </p>
             <p>
-                <b class="color-green">Незаметный герой</b><br>
-                награждается член национальной сборной России по хоккею, не относящийся к игрокам и тренерскому штабу,
-                внесший наибольший вклад в деятельность команды по мнению игроков и тренерского штаба национальной
-                сборной России по хоккею.
-            </p>
-            <p>
-                <b class="color-green">Лидер команды</b><br>
-                награждается член национальной сборной России по хоккею, который является примером для партнеров (на
-                льду и вне его) и который внес наибольший вклад в успехи команды по мнению всех членов национальной
-                сборной России по хоккею.
+                <b class="color-green">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/includes/main__nomination__modal__title7.php",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    ); ?>
+                </b><br>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__nomination__modal__text7.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </p>
         </div>
         <button data-fancybox-close class="award-regulations__close"></button>
@@ -153,7 +390,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "jury",
                 array(
                     "IBLOCK_TYPE" => "people",
-                    "IBLOCK_ID" => 3,
+                    "IBLOCK_ID" => "jury",
                     "NEWS_COUNT" => 3,
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                     "SET_TITLE" => "N",
@@ -176,7 +413,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "nomination",
                     array(
                         "IBLOCK_TYPE" => "nominations",
-                        "IBLOCK_ID" => 4,
+                        "IBLOCK_ID" => "nomination",
                         "NEWS_COUNT" => 7,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_NOTE", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -213,7 +450,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => 6,
+                        "IBLOCK_ID" => "most_valuable_player",
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -232,7 +469,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => 7,
+                        "IBLOCK_ID" => "gentleman_year",
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -252,7 +489,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => 8,
+                        "IBLOCK_ID" => "best_newcomer",
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -277,7 +514,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "quotes",
                     array(
                         "IBLOCK_TYPE" => "quotes",
-                        "IBLOCK_ID" => 9,
+                        "IBLOCK_ID" => "quotes",
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
                         "STRICT_SECTION_CHECK" => "N"
@@ -310,7 +547,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "news_list_mini",
                 array(
                     "IBLOCK_TYPE" => "news",
-                    "IBLOCK_ID" => 12,
+                    "IBLOCK_ID" => "news",
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
                     "SET_TITLE" => "N",
                     "STRICT_SECTION_CHECK" => "N",
@@ -345,7 +582,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_main",
                         array(
                             "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => 10,
+                            "IBLOCK_ID" => "video",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -357,13 +594,65 @@ $APPLICATION->SetTitle("Главная страница");
                         "bitrix:news.list",
                         "media_video_inner",
                         array(
-                            "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => 10,
-                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
+                            "IBLOCK_TYPE" => "Video",
+                            "IBLOCK_ID" => "17",
+                            "FIELD_CODE" => array(
+                                0 => "NAME",
+                                1 => "PREVIEW_PICTURE",
+                                2 => "PROPERTY_VIDEO",
+                                3 => "",
+                            ),
                             "SET_TITLE" => "N",
-                            "STRICT_SECTION_CHECK" => "N"
-                        )
-                    ) ?>
+                            "STRICT_SECTION_CHECK" => "N",
+                            "COMPONENT_TEMPLATE" => "media_video_inner",
+                            "NEWS_COUNT" => "20",
+                            "SORT_BY1" => "ACTIVE_FROM",
+                            "SORT_ORDER1" => "DESC",
+                            "SORT_BY2" => "SORT",
+                            "SORT_ORDER2" => "ASC",
+                            "FILTER_NAME" => "",
+                            "PROPERTY_CODE" => array(
+                                0 => "video",
+                                1 => "",
+                            ),
+                            "CHECK_DATES" => "Y",
+                            "DETAIL_URL" => "",
+                            "AJAX_MODE" => "N",
+                            "AJAX_OPTION_JUMP" => "N",
+                            "AJAX_OPTION_STYLE" => "Y",
+                            "AJAX_OPTION_HISTORY" => "N",
+                            "AJAX_OPTION_ADDITIONAL" => "",
+                            "CACHE_TYPE" => "A",
+                            "CACHE_TIME" => "36000000",
+                            "CACHE_FILTER" => "N",
+                            "CACHE_GROUPS" => "Y",
+                            "PREVIEW_TRUNCATE_LEN" => "",
+                            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                            "SET_BROWSER_TITLE" => "Y",
+                            "SET_META_KEYWORDS" => "Y",
+                            "SET_META_DESCRIPTION" => "Y",
+                            "SET_LAST_MODIFIED" => "N",
+                            "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                            "ADD_SECTIONS_CHAIN" => "Y",
+                            "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                            "PARENT_SECTION" => "",
+                            "PARENT_SECTION_CODE" => "",
+                            "INCLUDE_SUBSECTIONS" => "Y",
+                            "PAGER_TEMPLATE" => ".default",
+                            "DISPLAY_TOP_PAGER" => "N",
+                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                            "PAGER_TITLE" => "Новости",
+                            "PAGER_SHOW_ALWAYS" => "N",
+                            "PAGER_DESC_NUMBERING" => "N",
+                            "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                            "PAGER_SHOW_ALL" => "N",
+                            "PAGER_BASE_LINK_ENABLE" => "N",
+                            "SET_STATUS_404" => "N",
+                            "SHOW_404" => "N",
+                            "MESSAGE_404" => ""
+                        ),
+                        false
+                    ); ?>
                 </div>
                 <div class="main-media-photo">
                     <? $APPLICATION->IncludeComponent(
@@ -371,7 +660,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_main",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => 11,
+                            "IBLOCK_ID" => "photo",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -384,7 +673,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_inner",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => 11,
+                            "IBLOCK_ID" => "photo",
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -412,50 +701,44 @@ $APPLICATION->SetTitle("Главная страница");
                         <h4 class="contact-info__title">Пресс-центр<br> Федерации Хоккея России</h4>
 
                         <div class="contact-info__content">
-                            <div class="contact-info__mail">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <a class="" href="mailto:media@fhr.ru">
-                                    media@fhr.ru
-                                </a>
-                            </div>
-
-                            <div class="contact-info__phone">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                <a class="" href="tel:84956477111">
-                                    +7 (495) 647-71-11
-                                </a>
-                            </div>
-
-                            <div class="contact-info__address">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span>
-                                        115280, Россия, Москва,<br>
-                                        Автозаводская ул., д. 21 к. 1
-                                    </span>
-                            </div>
+                            <? $APPLICATION->IncludeComponent(
+                                'digital:hl.list',
+                                'my_hl',
+                                array(
+                                    'HLBLOCK_ID' => 3,
+                                    'CACHE_TYPE' => 'A',
+                                    'CACHE_TIME' => 36000000,
+                                ),
+                                false
+                            ); ?>
                         </div>
                     </div>
                 </div>
                 <div class="main-contact__right">
-                    <form method="post" class="contact-feedback-form">
-                        <h4 class="contact-feedback-form__title">Оставить заявку</h4>
-                        <div class="contact-feedback-form__inputs">
-                            <div>
-                                <label for="contact-feedback-name" class="contact-feedback-form__label">Имя</label>
-                                <input id="contact-feedback-name" name="name" type="text" maxlength="100" required>
-                            </div>
-                            <div>
-                                <label for="contact-feedback-email" class="contact-feedback-form__label">Почта</label>
-                                <input id="contact-feedback-email" name="email" type="email" maxlength="100" required>
-                            </div>
-                        </div>
-                        <div class="contact-feedback-form__area">
-                            <label for="contact-feedback-message" class="contact-feedback-form__label">Сообщение</label>
-                            <textarea name="message" id="contact-feedback-message" required></textarea>
-                        </div>
-
-                        <button class="contact-feedback-form__btn">Отправить</button>
-                    </form>
+                    <? $APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", array(
+                        "CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                        "CACHE_TYPE" => "A",    // Тип кеширования
+                        "CHAIN_ITEM_LINK" => "",    // Ссылка на дополнительном пункте в навигационной цепочке
+                        "CHAIN_ITEM_TEXT" => "",    // Название дополнительного пункта в навигационной цепочке
+                        "EDIT_URL" => "",    // Страница редактирования результата
+                        "IGNORE_CUSTOM_TEMPLATE" => "N",    // Игнорировать свой шаблон
+                        "LIST_URL" => "",    // Страница со списком результатов
+                        "SEF_MODE" => "N",    // Включить поддержку ЧПУ
+                        "SUCCESS_URL" => "",    // Страница с сообщением об успешной отправке
+                        "USE_EXTENDED_ERRORS" => "Y",    // Использовать расширенный вывод сообщений об ошибках
+                        "VARIABLE_ALIASES" => array(
+                            "RESULT_ID" => "RESULT_ID",
+                            "WEB_FORM_ID" => "WEB_FORM_ID",
+                        ),
+                        "WEB_FORM_ID" => "3",    // ID веб-формы
+                        "AJAX_MODE" => "Y",
+                        "AJAX_OPTION_SHADOW" => "N",
+                        "AJAX_OPTION_JUMP" => "Y",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                    ),
+                        false
+                    ); ?>
                 </div>
             </div>
         </div>
@@ -469,15 +752,18 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
             </h3>
             <div class="main-partners__content">
-                <a href="#" target="_blank" class="main-partners__link">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/partners/main-rate.png" alt="">
-                </a>
-                <a href="#" target="_blank" class="main-partners__link">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/partners/hockey.png" alt="">
-                </a>
-                <a href="#" target="_blank" class="main-partners__link">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/partners/liga.png" alt="">
-                </a>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:news.list",
+                    "partners",
+                    array(
+                        "IBLOCK_TYPE" => "partners",
+                        "IBLOCK_ID" => "partners",
+                        "NEWS_COUNT" => 3,
+                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_SOCIAL_LINK"),
+                        "SET_TITLE" => "N",
+                        "STRICT_SECTION_CHECK" => "N"
+                    )
+                ) ?>
             </div>
         </div>
     </div>

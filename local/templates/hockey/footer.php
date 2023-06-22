@@ -1,36 +1,48 @@
 <?php
-if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 </div>
 <div class="footer">
     <div class="wrapp footer__wrapp">
         <div class="grid-x grid-padding-x footer__content">
             <div class="small-4 footer__copyright">
-                © Премия "Герои Хоккея"<br>
-                Все права защищены
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/footer__text1.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </div>
             <div class="footer__socials">
                 <div class="footer-socials">
-                    <a href="https://vk.com/fhr" target="_blank">
-                        <i class="fa fa-vk" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.facebook.com/Russiahockey/" target="_blank">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://twitter.com/russiahockey" target="_blank">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <!-- <a href="https://ok.ru/russiahockey" target="_blank">
-                        <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
-                    </a> -->
-                    <a href="https://www.youtube.com/c/RussiaHockey" target="_blank">
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.instagram.com/russiahockey/" target="_blank">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                </div>            </div>
+                    <? $APPLICATION->IncludeComponent(
+                        'digital:hl.list', // Замените 'yournamespace' на ваше пространство имён (если требуется)
+                        '.default',
+                        array(
+                            'HLBLOCK_ID' => HLSocials, // Замените 123 на ID вашего highload-блока
+                            'CACHE_TYPE' => 'A',
+                            'CACHE_TIME' => 36000000,
+                        ),
+                        false
+                    ); ?>
+                </div>
+            </div>
             <div class="small-4">
-                При использовании материалов ссылка на сайт официальный сайт Федерации Хоккея России обязательна
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/footer__text2.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
             </div>
         </div>
     </div>
