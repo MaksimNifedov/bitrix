@@ -534,30 +534,22 @@ $APPLICATION->SetTitle("Главная страница");
             </div>
         </div>
     </div>
-    <div class="main-news" id="scroll-news">
-        <div class="wrapp main-news__wrapp">
-            <h3 class="title title--green main-news__title">
-                Новости
-                <div class="title__line">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
-                </div>
-            </h3>
-            <? $APPLICATION->IncludeComponent(
-                "bitrix:news.list",
-                "news_list_mini",
-                array(
-                    "IBLOCK_TYPE" => "news",
-                    "IBLOCK_ID" => "news",
-                    "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
-                    "SET_TITLE" => "N",
-                    "STRICT_SECTION_CHECK" => "N",
-                    "ACTIVE_DATE_FORMAT" => "d.m",
-                    "DETAIL_URL" => "/news/detail.php?ID=#ELEMENT_ID#",
-                    "LIST_PAGE_URL" => "/news/"
-                )
-            ) ?>
-        </div>
-    </div>
+
+<? $APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "news_list_mini",
+    array(
+        "IBLOCK_TYPE" => "news",
+        "IBLOCK_ID" => "news",
+        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
+        "SET_TITLE" => "N",
+        "STRICT_SECTION_CHECK" => "N",
+        "ACTIVE_DATE_FORMAT" => "d.m",
+        "DETAIL_URL" => "/news/detail.php?ID=#ELEMENT_ID#",
+        "LIST_PAGE_URL" => "/news/"
+    )
+) ?>
+
     <div class="main-media" id="scroll-media">
         <div class="wrapp main-media__wrapp">
             <div class="main-media__decor main-media__decor--top">
