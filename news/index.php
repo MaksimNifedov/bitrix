@@ -40,7 +40,7 @@ $APPLICATION->IncludeComponent(
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "DISPLAY_TOP_PAGER" => "N",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => IDPartnersIB,
+        "IBLOCK_ID" => IDNewsIB,
         "IBLOCK_TYPE" => "News",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
         "LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",

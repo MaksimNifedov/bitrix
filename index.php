@@ -701,7 +701,7 @@ $APPLICATION->SetTitle("Главная страница");
         "SET_TITLE" => "N",
         "STRICT_SECTION_CHECK" => "N",
         "ACTIVE_DATE_FORMAT" => "d.m",
-        "DETAIL_URL" => "/news/detail.php?ID=#ELEMENT_ID#",
+        "DETAIL_URL" => "/news/#ELEMENT_ID#/",
         "LIST_PAGE_URL" => "/news/"
     )
 ) ?>
