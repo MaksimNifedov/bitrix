@@ -18,7 +18,7 @@ define('IDJuryIB', '12'); // ID ИБ для блока с информацией
 define('IDValuablePlayerIB', '11'); // ID ИБ для блока ценные игроки
 define('IDGentlemanYearIB', '19'); // ID ИБ для блока с лауреатами премии джентельмен года
 define('IDBestNewcomerIB', '20'); // ID ИБ для блока с лауреатами премии лучший новичок
-define('IDMostValuablePlayerIB', '15'); // ID ИБ для блока с лауреатами премии самый лучший игрок
+define('IDMostValuablePlayerIB', '18'); // ID ИБ для блока с лауреатами премии самый лучший игрок
 
 /*
  * Константы для обозначения ID Web-формы с заявкой

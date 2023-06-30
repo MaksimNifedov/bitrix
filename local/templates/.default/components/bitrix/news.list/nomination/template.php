@@ -25,7 +25,6 @@ foreach ($arResult["ITEMS"] as $arItem) {
             </div>
         </div>
     </div>
-
     <?php
 }
 ?>
