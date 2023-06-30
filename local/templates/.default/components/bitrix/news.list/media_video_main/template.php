@@ -9,8 +9,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                 data-src="#slider-media--video">
             <span>Все видео</span>
             <span class="main-media-info__all-btn-icon">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </span>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </span>
         </button>
     </div>
     <div class="main-media-video__play">

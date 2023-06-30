@@ -57,7 +57,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "valuable_player",
                         array(
                             "IBLOCK_TYPE" => "people",
-                            "IBLOCK_ID" => "valuable_player",
+                            "IBLOCK_ID" => IDValuablePlayerIB,
                             "NEWS_COUNT" => 3,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_TEAM_PLACE"),
                             "SET_TITLE" => "N",
@@ -390,7 +390,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "jury",
                 array(
                     "IBLOCK_TYPE" => "people",
-                    "IBLOCK_ID" => "jury",
+                    "IBLOCK_ID" => IDJuryIB,
                     "NEWS_COUNT" => 3,
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                     "SET_TITLE" => "N",
@@ -413,7 +413,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "nomination",
                     array(
                         "IBLOCK_TYPE" => "nominations",
-                        "IBLOCK_ID" => "nomination",
+                        "IBLOCK_ID" => IDNominationIB,
                         "NEWS_COUNT" => 7,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_NOTE", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -450,7 +450,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => "most_valuable_player",
+                        "IBLOCK_ID" => IDMostValuablePlayerIB,
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -469,7 +469,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => "gentleman_year",
+                        "IBLOCK_ID" => IDGentlemanYearIB,
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -489,7 +489,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "laureates",
                     array(
                         "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => "best_newcomer",
+                        "IBLOCK_ID" => IDBestNewcomerIB,
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -514,7 +514,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "quotes",
                     array(
                         "IBLOCK_TYPE" => "quotes",
-                        "IBLOCK_ID" => "quotes",
+                        "IBLOCK_ID" => IDQuotesIB,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
                         "STRICT_SECTION_CHECK" => "N"
@@ -540,7 +540,7 @@ $APPLICATION->SetTitle("Главная страница");
     "news_list_mini",
     array(
         "IBLOCK_TYPE" => "news",
-        "IBLOCK_ID" => "news",
+        "IBLOCK_ID" => IDNewsIB,
         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
         "SET_TITLE" => "N",
         "STRICT_SECTION_CHECK" => "N",
@@ -574,7 +574,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_main",
                         array(
                             "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => "video",
+                            "IBLOCK_ID" => IDVideoIB,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -587,7 +587,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_inner",
                         array(
                             "IBLOCK_TYPE" => "Video",
-                            "IBLOCK_ID" => "17",
+                            "IBLOCK_ID" => IDVideoIB,
                             "FIELD_CODE" => array(
                                 0 => "NAME",
                                 1 => "PREVIEW_PICTURE",
@@ -652,7 +652,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_main",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => "photo",
+                            "IBLOCK_ID" => IDPhotoIB,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -665,7 +665,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_inner",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => "photo",
+                            "IBLOCK_ID" => IDPhotoIB,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -697,7 +697,7 @@ $APPLICATION->SetTitle("Главная страница");
                                 'digital:hl.list',
                                 'my_hl',
                                 array(
-                                    'HLBLOCK_ID' => 3,
+                                    'HLBLOCK_ID' => IDContacsHL,
                                     'CACHE_TYPE' => 'A',
                                     'CACHE_TIME' => 36000000,
                                 ),
@@ -708,21 +708,21 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
                 <div class="main-contact__right">
                     <? $APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", array(
-                        "CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                        "CACHE_TYPE" => "A",    // Тип кеширования
-                        "CHAIN_ITEM_LINK" => "",    // Ссылка на дополнительном пункте в навигационной цепочке
-                        "CHAIN_ITEM_TEXT" => "",    // Название дополнительного пункта в навигационной цепочке
-                        "EDIT_URL" => "",    // Страница редактирования результата
-                        "IGNORE_CUSTOM_TEMPLATE" => "N",    // Игнорировать свой шаблон
-                        "LIST_URL" => "",    // Страница со списком результатов
-                        "SEF_MODE" => "N",    // Включить поддержку ЧПУ
-                        "SUCCESS_URL" => "",    // Страница с сообщением об успешной отправке
-                        "USE_EXTENDED_ERRORS" => "Y",    // Использовать расширенный вывод сообщений об ошибках
+                        "CACHE_TIME" => "3600",
+                        "CACHE_TYPE" => "A",
+                        "CHAIN_ITEM_LINK" => "",
+                        "CHAIN_ITEM_TEXT" => "",
+                        "EDIT_URL" => "",
+                        "IGNORE_CUSTOM_TEMPLATE" => "N",
+                        "LIST_URL" => "",
+                        "SEF_MODE" => "N",
+                        "SUCCESS_URL" => "",
+                        "USE_EXTENDED_ERRORS" => "Y",
                         "VARIABLE_ALIASES" => array(
                             "RESULT_ID" => "RESULT_ID",
                             "WEB_FORM_ID" => "WEB_FORM_ID",
                         ),
-                        "WEB_FORM_ID" => "3",    // ID веб-формы
+                        "WEB_FORM_ID" => IDSubmitRequestWebForm,
                         "AJAX_MODE" => "Y",
                         "AJAX_OPTION_SHADOW" => "N",
                         "AJAX_OPTION_JUMP" => "Y",
@@ -749,7 +749,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "partners",
                     array(
                         "IBLOCK_TYPE" => "partners",
-                        "IBLOCK_ID" => "partners",
+                        "IBLOCK_ID" => IDPartnersIB,
                         "NEWS_COUNT" => 3,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_SOCIAL_LINK"),
                         "SET_TITLE" => "N",
