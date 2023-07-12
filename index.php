@@ -57,7 +57,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "valuable_player",
                         array(
                             "IBLOCK_TYPE" => "people",
-                            "IBLOCK_ID" => "valuable_player",
+                            "IBLOCK_ID" => IDValuablePlayerIB,
                             "NEWS_COUNT" => 3,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_TEAM_PLACE"),
                             "SET_TITLE" => "N",
@@ -390,7 +390,7 @@ $APPLICATION->SetTitle("Главная страница");
                 "jury",
                 array(
                     "IBLOCK_TYPE" => "people",
-                    "IBLOCK_ID" => "jury",
+                    "IBLOCK_ID" => IDJuryIB,
                     "NEWS_COUNT" => 3,
                     "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                     "SET_TITLE" => "N",
@@ -413,7 +413,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "nomination",
                     array(
                         "IBLOCK_TYPE" => "nominations",
-                        "IBLOCK_ID" => "nomination",
+                        "IBLOCK_ID" => IDNominationIB,
                         "NEWS_COUNT" => 7,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_NOTE", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
@@ -449,14 +449,66 @@ $APPLICATION->SetTitle("Главная страница");
                     "bitrix:news.list",
                     "laureates",
                     array(
-                        "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => "most_valuable_player",
-                        "NEWS_COUNT" => 3,
-                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
+                        "IBLOCK_TYPE" => "-",
+                        "IBLOCK_ID" => IDMostValuablePlayerIB,
+                        "NEWS_COUNT" => "3",
+                        "FIELD_CODE" => array(
+                            0 => "NAME",
+                            1 => "PREVIEW_PICTURE",
+                            2 => "DETAIL_TEXT",
+                            3 => "PROPERTY_POST",
+                            4 => "",
+                        ),
                         "SET_TITLE" => "N",
-                        "STRICT_SECTION_CHECK" => "N"
-                    )
-                ) ?>
+                        "STRICT_SECTION_CHECK" => "N",
+                        "COMPONENT_TEMPLATE" => "laureates",
+                        "SORT_BY1" => "ACTIVE_FROM",
+                        "SORT_ORDER1" => "DESC",
+                        "SORT_BY2" => "SORT",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "PROPERTY_CODE" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "N",
+                        "PREVIEW_TRUNCATE_LEN" => "",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_BROWSER_TITLE" => "Y",
+                        "SET_META_KEYWORDS" => "Y",
+                        "SET_META_DESCRIPTION" => "Y",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                        "ADD_SECTIONS_CHAIN" => "Y",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => ""
+                    ),
+                    false
+                ); ?>
 
             </div>
             <h4 class="main-nominees__icon-title main-nominees__icon-title--gent">
@@ -468,14 +520,66 @@ $APPLICATION->SetTitle("Главная страница");
                     "bitrix:news.list",
                     "laureates",
                     array(
-                        "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => "gentleman_year",
-                        "NEWS_COUNT" => 3,
-                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
+                        "IBLOCK_TYPE" => "-",
+                        "IBLOCK_ID" => IDGentlemanYearIB,
+                        "NEWS_COUNT" => "3",
+                        "FIELD_CODE" => array(
+                            0 => "NAME",
+                            1 => "PREVIEW_PICTURE",
+                            2 => "DETAIL_TEXT",
+                            3 => "PROPERTY_POST",
+                            4 => "",
+                        ),
                         "SET_TITLE" => "N",
-                        "STRICT_SECTION_CHECK" => "N"
-                    )
-                ) ?>
+                        "STRICT_SECTION_CHECK" => "N",
+                        "COMPONENT_TEMPLATE" => "laureates",
+                        "SORT_BY1" => "ACTIVE_FROM",
+                        "SORT_ORDER1" => "DESC",
+                        "SORT_BY2" => "SORT",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "PROPERTY_CODE" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "N",
+                        "PREVIEW_TRUNCATE_LEN" => "",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_BROWSER_TITLE" => "Y",
+                        "SET_META_KEYWORDS" => "Y",
+                        "SET_META_DESCRIPTION" => "Y",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                        "ADD_SECTIONS_CHAIN" => "Y",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => ""
+                    ),
+                    false
+                ); ?>
             </div>
 
 
@@ -488,14 +592,66 @@ $APPLICATION->SetTitle("Главная страница");
                     "bitrix:news.list",
                     "laureates",
                     array(
-                        "IBLOCK_TYPE" => "laureates",
-                        "IBLOCK_ID" => "best_newcomer",
-                        "NEWS_COUNT" => 3,
-                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
+                        "IBLOCK_TYPE" => "-",
+                        "IBLOCK_ID" => IDBestNewcomerIB,
+                        "NEWS_COUNT" => "3",
+                        "FIELD_CODE" => array(
+                            0 => "NAME",
+                            1 => "PREVIEW_PICTURE",
+                            2 => "DETAIL_TEXT",
+                            3 => "PROPERTY_POST",
+                            4 => "",
+                        ),
                         "SET_TITLE" => "N",
-                        "STRICT_SECTION_CHECK" => "N"
-                    )
-                ) ?>
+                        "STRICT_SECTION_CHECK" => "N",
+                        "COMPONENT_TEMPLATE" => "laureates",
+                        "SORT_BY1" => "ACTIVE_FROM",
+                        "SORT_ORDER1" => "DESC",
+                        "SORT_BY2" => "SORT",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "PROPERTY_CODE" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "N",
+                        "PREVIEW_TRUNCATE_LEN" => "",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_BROWSER_TITLE" => "Y",
+                        "SET_META_KEYWORDS" => "Y",
+                        "SET_META_DESCRIPTION" => "Y",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                        "ADD_SECTIONS_CHAIN" => "Y",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => ""
+                    ),
+                    false
+                ); ?>
             </div>
         </div>
     </div>
@@ -514,7 +670,7 @@ $APPLICATION->SetTitle("Главная страница");
                     "quotes",
                     array(
                         "IBLOCK_TYPE" => "quotes",
-                        "IBLOCK_ID" => "quotes",
+                        "IBLOCK_ID" => IDQuotesIB,
                         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
                         "SET_TITLE" => "N",
                         "STRICT_SECTION_CHECK" => "N"
@@ -540,12 +696,12 @@ $APPLICATION->SetTitle("Главная страница");
     "news_list_mini",
     array(
         "IBLOCK_TYPE" => "news",
-        "IBLOCK_ID" => "news",
+        "IBLOCK_ID" => IDNewsIB,
         "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "DISPLAY_ACTIVE_FROM", "DETAIL_PAGE_URL", "LIST_PAGE_URL"),
         "SET_TITLE" => "N",
         "STRICT_SECTION_CHECK" => "N",
         "ACTIVE_DATE_FORMAT" => "d.m",
-        "DETAIL_URL" => "/news/detail.php?ID=#ELEMENT_ID#",
+        "DETAIL_URL" => "/news/#ELEMENT_ID#/",
         "LIST_PAGE_URL" => "/news/"
     )
 ) ?>
@@ -574,7 +730,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_main",
                         array(
                             "IBLOCK_TYPE" => "video",
-                            "IBLOCK_ID" => "video",
+                            "IBLOCK_ID" => IDVideoIB,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -587,7 +743,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_video_inner",
                         array(
                             "IBLOCK_TYPE" => "Video",
-                            "IBLOCK_ID" => "17",
+                            "IBLOCK_ID" => IDVideoIB,
                             "FIELD_CODE" => array(
                                 0 => "NAME",
                                 1 => "PREVIEW_PICTURE",
@@ -652,7 +808,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_main",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => "photo",
+                            "IBLOCK_ID" => IDPhotoIB,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -665,7 +821,7 @@ $APPLICATION->SetTitle("Главная страница");
                         "media_photo_inner",
                         array(
                             "IBLOCK_TYPE" => "Photos",
-                            "IBLOCK_ID" => "photo",
+                            "IBLOCK_ID" => IDPhotoIB,
                             "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_VIDEO"),
                             "SET_TITLE" => "N",
                             "STRICT_SECTION_CHECK" => "N"
@@ -697,7 +853,7 @@ $APPLICATION->SetTitle("Главная страница");
                                 'digital:hl.list',
                                 'my_hl',
                                 array(
-                                    'HLBLOCK_ID' => 3,
+                                    'HLBLOCK_ID' => IDContacsHL,
                                     'CACHE_TYPE' => 'A',
                                     'CACHE_TIME' => 36000000,
                                 ),
@@ -708,21 +864,21 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
                 <div class="main-contact__right">
                     <? $APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", array(
-                        "CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                        "CACHE_TYPE" => "A",    // Тип кеширования
-                        "CHAIN_ITEM_LINK" => "",    // Ссылка на дополнительном пункте в навигационной цепочке
-                        "CHAIN_ITEM_TEXT" => "",    // Название дополнительного пункта в навигационной цепочке
-                        "EDIT_URL" => "",    // Страница редактирования результата
-                        "IGNORE_CUSTOM_TEMPLATE" => "N",    // Игнорировать свой шаблон
-                        "LIST_URL" => "",    // Страница со списком результатов
-                        "SEF_MODE" => "N",    // Включить поддержку ЧПУ
-                        "SUCCESS_URL" => "",    // Страница с сообщением об успешной отправке
-                        "USE_EXTENDED_ERRORS" => "Y",    // Использовать расширенный вывод сообщений об ошибках
+                        "CACHE_TIME" => "3600",
+                        "CACHE_TYPE" => "A",
+                        "CHAIN_ITEM_LINK" => "",
+                        "CHAIN_ITEM_TEXT" => "",
+                        "EDIT_URL" => "",
+                        "IGNORE_CUSTOM_TEMPLATE" => "N",
+                        "LIST_URL" => "",
+                        "SEF_MODE" => "N",
+                        "SUCCESS_URL" => "",
+                        "USE_EXTENDED_ERRORS" => "Y",
                         "VARIABLE_ALIASES" => array(
                             "RESULT_ID" => "RESULT_ID",
                             "WEB_FORM_ID" => "WEB_FORM_ID",
                         ),
-                        "WEB_FORM_ID" => "3",    // ID веб-формы
+                        "WEB_FORM_ID" => IDSubmitRequestWebForm,
                         "AJAX_MODE" => "Y",
                         "AJAX_OPTION_SHADOW" => "N",
                         "AJAX_OPTION_JUMP" => "Y",
@@ -749,13 +905,64 @@ $APPLICATION->SetTitle("Главная страница");
                     "partners",
                     array(
                         "IBLOCK_TYPE" => "partners",
-                        "IBLOCK_ID" => "partners",
-                        "NEWS_COUNT" => 3,
-                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_SOCIAL_LINK"),
+                        "IBLOCK_ID" => IDPartnersIB,
+                        "NEWS_COUNT" => "3",
+                        "FIELD_CODE" => array(
+                            0 => "NAME",
+                            1 => "PREVIEW_PICTURE",
+                            2 => "PROPERTY_SOCIAL_LINK",
+                            3 => "",
+                        ),
                         "SET_TITLE" => "N",
-                        "STRICT_SECTION_CHECK" => "N"
-                    )
-                ) ?>
+                        "STRICT_SECTION_CHECK" => "N",
+                        "COMPONENT_TEMPLATE" => "partners",
+                        "SORT_BY1" => "ACTIVE_FROM",
+                        "SORT_ORDER1" => "DESC",
+                        "SORT_BY2" => "SORT",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "PROPERTY_CODE" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "N",
+                        "PREVIEW_TRUNCATE_LEN" => "",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_BROWSER_TITLE" => "Y",
+                        "SET_META_KEYWORDS" => "Y",
+                        "SET_META_DESCRIPTION" => "Y",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                        "ADD_SECTIONS_CHAIN" => "Y",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => ""
+                    ),
+                    false
+                ); ?>
             </div>
         </div>
     </div>

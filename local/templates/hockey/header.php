@@ -14,11 +14,11 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=1250, initial-scale=1">
     <title><? $APPLICATION->ShowTitle() ?></title>
-    <? $APPLICATION->ShowHead() ;?>
+    <? $APPLICATION->ShowHead(); ?>
     <link href="<?= SITE_TEMPLATE_PATH ?>/assets/olimp.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body class="main default">
-<? $APPLICATION->ShowPanel();?>
+<? $APPLICATION->ShowPanel(); ?>
 <div class="wrapper">
     <header class="header">
         <div class="header__left">
@@ -43,7 +43,6 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
                             "ALLOW_MULTI_SELECT" => "N",
                             "USE_EXT" => "N",
                             "MENU_CACHE_TYPE" => "A"
-
                         )
                     ) ?>
                 </div>

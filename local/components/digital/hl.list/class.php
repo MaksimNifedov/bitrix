@@ -4,7 +4,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\FileTable;
 use Bitrix\Main\Loader;
+
 Loader::includeModule("highloadblock");
+
 class HighloadBlockListComponent extends CBitrixComponent
 {
     public function onPrepareComponentParams($arParams)

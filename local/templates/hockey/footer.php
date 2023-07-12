@@ -20,10 +20,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
             <div class="footer__socials">
                 <div class="footer-socials">
                     <? $APPLICATION->IncludeComponent(
-                        'digital:hl.list', // Замените 'yournamespace' на ваше пространство имён (если требуется)
+                        'digital:hl.list',
                         '.default',
                         array(
-                            'HLBLOCK_ID' => HLSocials, // Замените 123 на ID вашего highload-блока
+                            'HLBLOCK_ID' => IDSocialsHL,
                             'CACHE_TYPE' => 'A',
                             'CACHE_TIME' => 36000000,
                         ),

@@ -28,7 +28,6 @@ foreach ($arResult['ITEMS'] as $item) {
                     <?= $item['UF_INFO'] ?>
                 </a>
             </div>
-
             <?php
             break;
         case 'Адрес':

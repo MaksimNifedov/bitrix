@@ -7,11 +7,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
     <div class="slider-media__wrapp">
         <div class="slider-media__big">
             <?php foreach ($arResult["ITEMS"] as $arItem) {
-//                print_r($arItem['PROPERTY_VIDEO_VALUE']['path']);
                 ?>
                 <div class="slider-media__item">
 
-                    <video src="<?= $arItem['PROPERTY_VIDEO_VALUE']['path'] ?>"controls poster="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>"
+                    <video src="<?= $arItem['PROPERTY_VIDEO_VALUE']['path'] ?>" controls
+                           poster="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>"
                            preload="none">
                         <source src="<?= $arItem['PROPERTY_VIDEO_VALUE']['path'] ?>">
                     </video>
@@ -20,15 +20,15 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
         </div>
         <div class="slider-media__thumbnails">
-            <?php foreach ($arResult["ITEMS"] as $arItem) {?>
-            <div class="slider-media__item">
-                <div class="slider-media__thumbnail">
-                    <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>" alt="">
-                    <button type="button" class="media-round-video">
-                        <i class="media-round-video__icon fa fa-play" aria-hidden="true"></i>
-                    </button>
+            <?php foreach ($arResult["ITEMS"] as $arItem) { ?>
+                <div class="slider-media__item">
+                    <div class="slider-media__thumbnail">
+                        <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $arParams["NO_IMAGE_PATH"] ?>" alt="">
+                        <button type="button" class="media-round-video">
+                            <i class="media-round-video__icon fa fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
         <button type="submit" class="slider-media__btn slider-media__btn--right">

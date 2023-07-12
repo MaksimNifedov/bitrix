@@ -8,5 +8,5 @@ function FunctionName(params)
 	//code
 }
 */
-define('HLSocials','2');
+require_once "constID.php"
 ?>
