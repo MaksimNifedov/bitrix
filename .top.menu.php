@@ -1,69 +1,67 @@
 <?
 $aMenuLinks = Array(
-
 	Array(
-		"О премии",
-		"/#scroll-about",
+		"Интернет магазин", 
+		"/catalog/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
-
 	Array(
-		"Регламент",
-		"/#scroll-regulations",
+		"Регламент", 
+		"/#scroll-regulations", 
 		Array(), 
 		Array(), 
 		"" 
 	),
-    Array(
-        "Жюри",
-        "/#scroll-jury",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Номинации",
-        "/#scroll-nomination",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Лауреаты",
-        "/#scroll-nominees",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Новости",
-        "/#scroll-news",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Медия",
-        "/#scroll-media",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Контакты",
-        "/#scroll-contacts",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Партнеры",
-        "/#scroll-partners",
-        Array(),
-        Array(),
-        ""
-    ),
+	Array(
+		"Жюри", 
+		"/#scroll-jury", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Номинации", 
+		"/#scroll-nomination", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Лауреаты", 
+		"/#scroll-nominees", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		"/#scroll-news", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Медия", 
+		"/#scroll-media", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/#scroll-contacts", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Партнеры", 
+		"/#scroll-partners", 
+		Array(), 
+		Array(), 
+		"" 
+	)
 );
 ?>
