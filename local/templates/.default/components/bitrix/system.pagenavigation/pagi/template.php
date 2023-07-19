@@ -1,4 +1,15 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/* @var array $arParams */
+/* @var array $arResult */
+/* @global CMain $APPLICATION */
+/* @global CUser $USER */
+/* @global CDatabase $DB */
+/* @var CBitrixComponentTemplate $this */
+/* @var string $templateName */
+/* @var string $templateFile */
+/* @var string $templateFolder */
+/* @var string $componentPath */
+/* @var CBitrixComponent $component */
 $this->setFrameMode(true);
 if (!$arResult["NavShowAlways"]) {
     if ($arResult["NavRecordCount"] == 0 || ($arResult["NavPageCount"] == 1 && $arResult["NavShowAll"] == false))
@@ -9,46 +20,46 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["N
 ?>
 <nav aria-label="Pagination">
     <ul class="pagination text-center">
-        <? if ($arResult["NavPageNomer"] > 1): ?>
-            <? if ($arResult["bSavePage"]): ?>
+        <?php  if ($arResult["NavPageNomer"] > 1): ?>
+            <?php  if ($arResult["bSavePage"]): ?>
                 <li class="pagination__previous disabled">
                     <a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>"><i
                                 class="fa fa-angle-left"></i></a>
                 </li>
-            <? else: ?>
-                <? if ($arResult["NavPageNomer"] > 2): ?>
+            <?php  else: ?>
+                <?php  if ($arResult["NavPageNomer"] > 2): ?>
                     <li>
                         <a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>"><i
                                     class="fa fa-angle-left"></i></a>
                     </li>
-                <? else: ?>
+                <?php  else: ?>
                     <li>
                         <a href="<?= $arResult["sUrlPath"] ?><?= $strNavQueryStringFull ?>">
                             <i class="fa fa-angle-left"></i>
                         </a>
                     </li>
-                <? endif ?>
-            <? endif ?>
-        <? endif ?>
-        <? while ($arResult["nStartPage"] <= $arResult["nEndPage"]): ?>
-            <? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]): ?>
+                <?php  endif ?>
+            <?php  endif ?>
+        <?php  endif ?>
+        <?php  while ($arResult["nStartPage"] <= $arResult["nEndPage"]): ?>
+            <?php  if ($arResult["nStartPage"] == $arResult["NavPageNomer"]): ?>
                 <li class="pagination__current"><?= $arResult["nStartPage"] ?></li>
-            <? elseif ($arResult["nStartPage"] == 1 && $arResult["bSavePage"] == false): ?>
+            <?php  elseif ($arResult["nStartPage"] == 1 && $arResult["bSavePage"] == false): ?>
                 <li>
                     <a href="<?= $arResult["sUrlPath"] ?><?= $strNavQueryStringFull ?>"><?= $arResult["nStartPage"] ?></a>
                 </li>
-            <? else: ?>
+            <?php  else: ?>
                 <li>
                     <a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= $arResult["nStartPage"] ?>"><?= $arResult["nStartPage"] ?></a>
                 </li>
-            <? endif ?>
-            <? $arResult["nStartPage"]++ ?>
-        <? endwhile ?>
-        <? if ($arResult["NavPageNomer"] < $arResult["NavPageCount"]): ?>
+            <?php  endif ?>
+            <?php  $arResult["nStartPage"]++ ?>
+        <?php  endwhile ?>
+        <?php  if ($arResult["NavPageNomer"] < $arResult["NavPageCount"]): ?>
             <li class="pagination__next">
                 <a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] + 1) ?>"><i
                             class="fa fa-angle-right"></i></a>
             </li>
-        <? endif ?>
+        <?php  endif ?>
     </ul>
 </nav>

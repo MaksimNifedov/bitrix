@@ -1,5 +1,6 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+/* @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Новости");
 $APPLICATION->IncludeComponent(
     "bitrix:news",
@@ -92,4 +93,4 @@ $APPLICATION->IncludeComponent(
     ),
     false
 );
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php");

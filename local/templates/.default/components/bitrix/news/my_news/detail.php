@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -33,7 +33,7 @@ $resNext = CIBlockElement::GetList(
 );
 ?>
 <div class="wrapp">
-    <?
+    <?php
     $APPLICATION->IncludeComponent(
         "bitrix:breadcrumb",
         "breadcrumbs_news",
@@ -45,7 +45,7 @@ $resNext = CIBlockElement::GetList(
         ),
         false
     ); ?>
-    <? $ElementID = $APPLICATION->IncludeComponent(
+    <?php $ElementID = $APPLICATION->IncludeComponent(
         "bitrix:news.detail",
         "detail_news",
         array(
@@ -108,7 +108,7 @@ $resNext = CIBlockElement::GetList(
                     <div class="news-next-prev__title">
                         Предыдущая новость
                     </div>
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:news.detail",
                         "mini_detail_news",
                         array(
@@ -177,7 +177,7 @@ $resNext = CIBlockElement::GetList(
                     <div class="news-next-prev__title">
                         Следующая новость
                     </div>
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:news.detail",
                         "mini_detail_news",
                         array(

@@ -1,8 +1,7 @@
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-
-use \Bitrix\Main\Page\Asset;
-
+/* @global CMain $APPLICATION */
+use Bitrix\Main\Page\Asset;
 $asset = Asset::getInstance();
 $asset->addCss(SITE_TEMPLATE_PATH . '/assets/css/app.css');
 $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
@@ -13,12 +12,12 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=1250, initial-scale=1">
-    <title><? $APPLICATION->ShowTitle() ?></title>
-    <? $APPLICATION->ShowHead(); ?>
+    <title><?php $APPLICATION->ShowTitle() ?></title>
+    <?php $APPLICATION->ShowHead(); ?>
     <link href="<?= SITE_TEMPLATE_PATH ?>/assets/olimp.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body class="main default">
-<? $APPLICATION->ShowPanel(); ?>
+<?php $APPLICATION->ShowPanel(); ?>
 <div class="wrapper">
     <header class="header">
         <div class="header__left">
@@ -33,7 +32,7 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/app.js');
                     </a>
                 </div>
                 <div class="header__menu">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:menu",
                         "menu_header",
                         array(

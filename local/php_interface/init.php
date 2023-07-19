@@ -1,12 +1,16 @@
-<?
-/*
-You can place here your functions and event handlers
+<?php
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
-AddEventHandler("module", "EventName", "FunctionName");
-function FunctionName(params)
-{
-	//code
+
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/constID.php')) {
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/constID.php');
 }
-*/
-require_once "constID.php"
-?>
+
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/handlers.php')) {
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/handlers.php');
+    WebArch\BitrixNeverInclude\BitrixNeverInclude::getClassMapping();
+}
+
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/functions.php')) {
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/include/functions.php');
+}

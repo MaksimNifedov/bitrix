@@ -1,4 +1,4 @@
-<?
+<?php
 $aMenuLinks = Array(
 	Array(
 		"Новости",
@@ -45,4 +45,3 @@ $aMenuLinks = Array(
 		""
 	),
 );
-?>

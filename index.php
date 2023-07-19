@@ -1,92 +1,94 @@
-<?
+<?php
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+
+/* @global CMain $APPLICATION */
+
 $APPLICATION->SetPageProperty("title", "Главная");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 $APPLICATION->SetTitle("Главная страница");
-
 ?>
-    <div class="main-about-block" id="scroll-about">
-        <div class="main-about-block__decor">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/round-decor-big.svg" alt="" class="svg-inject-me">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/round-decor-small.svg" alt="" class="svg-inject-me">
-        </div>
+    <!--    <div class="main-about-block" id="scroll-about">-->
+    <!--        <div class="main-about-block__decor">-->
+    <!--            <img src="--><?php //= SITE_TEMPLATE_PATH ?><!--/assets/img/svg/round-decor-big.svg" alt="" class="svg-inject-me">-->
+    <!--            <img src="--><?php //= SITE_TEMPLATE_PATH ?><!--/assets/img/svg/round-decor-small.svg" alt="" class="svg-inject-me">-->
+    <!--        </div>-->
 
-        <div class="wrapp main-about-block__wrapp">
-            <div class="main-about">
-                <div class="main-about__content">
-                    <h1 class="title title--green title--left main-about__title">
-                        О премии
-                        <div class="title__line">
-                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt=""
-                                 class="svg-inject-me">
-                        </div>
-                    </h1>
-                    <? $APPLICATION->IncludeComponent(
+    <div class="wrapp main-about-block__wrapp">
+        <div class="main-about">
+            <div class="main-about__content">
+                <h1 class="title title--green title--left main-about__title">
+                    О премии
+                    <div class="title__line">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt=""
+                             class="svg-inject-me">
+                    </div>
+                </h1>
+                <?php $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__premium__text.php",
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "EDIT_TEMPLATE" => ""
+                    ),
+                    false
+                ); ?>
+
+            </div>
+            <div class="main-about__round">
+                <div class="main-about-round main-about-round--logo"></div>
+                <div class="main-about-round main-about-round--prize"></div>
+            </div>
+        </div>
+        <div class="main-choice">
+            <h2 class="main-choice__title">
+                <?php $APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    ".default",
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => "/local/includes/main__vote__player.php",
+                    ),
+                    false
+                ); ?>
+            </h2>
+            <div class="main-choice__pick">
+                <?php $APPLICATION->IncludeComponent(
+                    "bitrix:news.list",
+                    "valuable_player",
+                    array(
+                        "IBLOCK_TYPE" => "people",
+                        "IBLOCK_ID" => IDValuablePlayerIB,
+                        "NEWS_COUNT" => 3,
+                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_TEAM_PLACE"),
+                        "SET_TITLE" => "N",
+                        "STRICT_SECTION_CHECK" => "N"
+                    )
+                ); ?>
+
+                <button type="button" class="main-choice__button">
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
-                        ".default",
+                        "",
                         array(
                             "AREA_FILE_SHOW" => "file",
-                            "PATH" => "/local/includes/main__premium__text.php",
-                            "COMPONENT_TEMPLATE" => ".default",
-                            "EDIT_TEMPLATE" => ""
+                            "PATH" => "/local/includes/main__vote__link.php",
                         ),
                         false
                     ); ?>
+                    <i class="fa fa-vk" aria-hidden="true"></i>
+                </button>
 
-                </div>
-                <div class="main-about__round">
-                    <div class="main-about-round main-about-round--logo"></div>
-                    <div class="main-about-round main-about-round--prize"></div>
-                </div>
-            </div>
-            <div class="main-choice">
-                <h2 class="main-choice__title">
-                    <? $APPLICATION->IncludeComponent(
-                        "bitrix:main.include",
-                        ".default",
-                        array(
-                            "AREA_FILE_SHOW" => "file",
-                            "PATH" => "/local/includes/main__vote__player.php",
-                        ),
-                        false
-                    ); ?>
-                </h2>
-                <div class="main-choice__pick">
-                    <? $APPLICATION->IncludeComponent(
-                        "bitrix:news.list",
-                        "valuable_player",
-                        array(
-                            "IBLOCK_TYPE" => "people",
-                            "IBLOCK_ID" => IDValuablePlayerIB,
-                            "NEWS_COUNT" => 3,
-                            "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_TEAM_PLACE"),
-                            "SET_TITLE" => "N",
-                            "STRICT_SECTION_CHECK" => "N"
-                        )
-                    ); ?>
-
-                    <button type="button" class="main-choice__button">
-                        <? $APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            array(
-                                "AREA_FILE_SHOW" => "file",
-                                "PATH" => "/local/includes/main__vote__link.php",
-                            ),
-                            false
-                        ); ?>
-                        <i class="fa fa-vk" aria-hidden="true"></i>
-                    </button>
-
-                </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="main-award-regulations" id="scroll-regulations">
 
         <div class="wrapp main-award-regulations__wrapp">
             <h3 class="main-award-regulations__title">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     "",
                     array(
@@ -107,7 +109,7 @@ $APPLICATION->SetTitle("Главная страница");
     </div>
     <div class="award-regulations" id="award-regulations">
         <h5 class="title title--green award-regulations__title">
-            <? $APPLICATION->IncludeComponent(
+            <?php $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
                 array(
@@ -123,7 +125,7 @@ $APPLICATION->SetTitle("Главная страница");
         </h5>
         <div class="award-regulations__content">
             <h6>О Премии</h6>
-            <? $APPLICATION->IncludeComponent(
+            <?php $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 ".default",
                 array(
@@ -136,7 +138,7 @@ $APPLICATION->SetTitle("Главная страница");
             ); ?>
 
             <h6>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -149,7 +151,7 @@ $APPLICATION->SetTitle("Главная страница");
                 ); ?>
             </h6>
             <p>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -163,7 +165,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
 
             <h6>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -176,7 +178,7 @@ $APPLICATION->SetTitle("Главная страница");
                 ); ?>
             </h6>
             <p>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -191,7 +193,7 @@ $APPLICATION->SetTitle("Главная страница");
 
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -204,7 +206,7 @@ $APPLICATION->SetTitle("Главная страница");
                     ); ?>
                 </b>
                 <br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -218,7 +220,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -230,7 +232,7 @@ $APPLICATION->SetTitle("Главная страница");
                         false
                     ); ?>
                 </b><br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -245,7 +247,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -257,7 +259,7 @@ $APPLICATION->SetTitle("Главная страница");
                         false
                     ); ?>
                 </b><br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -271,7 +273,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -283,7 +285,7 @@ $APPLICATION->SetTitle("Главная страница");
                         false
                     ); ?>
                 </b><br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -298,7 +300,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -310,7 +312,7 @@ $APPLICATION->SetTitle("Главная страница");
                         false
                     ); ?>
                 </b><br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -324,7 +326,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -336,7 +338,7 @@ $APPLICATION->SetTitle("Главная страница");
                         false
                     ); ?>
                 </b><br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -350,7 +352,7 @@ $APPLICATION->SetTitle("Главная страница");
             </p>
             <p>
                 <b class="color-green">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         ".default",
                         array(
@@ -362,7 +364,7 @@ $APPLICATION->SetTitle("Главная страница");
                         false
                     ); ?>
                 </b><br>
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -385,7 +387,7 @@ $APPLICATION->SetTitle("Главная страница");
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
                 </div>
             </h3>
-            <? $APPLICATION->IncludeComponent(
+            <?php $APPLICATION->IncludeComponent(
                 "bitrix:news.list",
                 "jury",
                 array(
@@ -408,7 +410,7 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
             </h3>
             <div class="main-nomination__items">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "nomination",
                     array(
@@ -445,7 +447,7 @@ $APPLICATION->SetTitle("Главная страница");
             </h4>
 
             <div class="main-nominees__items">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "laureates",
                     array(
@@ -516,7 +518,7 @@ $APPLICATION->SetTitle("Главная страница");
                 Джентльмен года
             </h4>
             <div class="main-nominees__items">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "laureates",
                     array(
@@ -588,7 +590,7 @@ $APPLICATION->SetTitle("Главная страница");
                 Лучший новичок
             </h4>
             <div class="main-nominees__items">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "laureates",
                     array(
@@ -665,17 +667,70 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
             </h3>
             <div class="main-quotes__items">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "quotes",
                     array(
-                        "IBLOCK_TYPE" => "quotes",
+                        "IBLOCK_TYPE" => "Quotes",
                         "IBLOCK_ID" => IDQuotesIB,
-                        "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PROPERTY_POST", "DETAIL_TEXT"),
+                        "FIELD_CODE" => array(
+                            0 => "NAME",
+                            1 => "PREVIEW_PICTURE",
+                            2 => "DETAIL_TEXT",
+                            3 => "PROPERTY_POST",
+                            4 => "",
+                        ),
                         "SET_TITLE" => "N",
-                        "STRICT_SECTION_CHECK" => "N"
-                    )
-                ) ?>
+                        "STRICT_SECTION_CHECK" => "N",
+                        "COMPONENT_TEMPLATE" => "quotes",
+                        "NEWS_COUNT" => "20",
+                        "SORT_BY1" => "ACTIVE_FROM",
+                        "SORT_ORDER1" => "DESC",
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "N",
+                        "PREVIEW_TRUNCATE_LEN" => "",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_BROWSER_TITLE" => "Y",
+                        "SET_META_KEYWORDS" => "Y",
+                        "SET_META_DESCRIPTION" => "Y",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                        "ADD_SECTIONS_CHAIN" => "Y",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "SORT_BY2" => "SORT",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "PROPERTY_CODE" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => ""
+                    ),
+                    false
+                ); ?>
             </div>
             <div class="main-quotes__slider">
                 <div class="slider js-quotes-slider" data-slider data-initial-start="0" data-end="5"
@@ -691,7 +746,7 @@ $APPLICATION->SetTitle("Главная страница");
         </div>
     </div>
 
-<? $APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "news_list_mini",
     array(
@@ -725,7 +780,7 @@ $APPLICATION->SetTitle("Главная страница");
             </h3>
             <div class="main-media__content">
                 <div class="main-media-video">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:news.list",
                         "media_video_main",
                         array(
@@ -738,7 +793,7 @@ $APPLICATION->SetTitle("Главная страница");
                     ) ?>
                 </div>
                 <div class="slider-media" id="slider-media--video">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:news.list",
                         "media_video_inner",
                         array(
@@ -803,7 +858,7 @@ $APPLICATION->SetTitle("Главная страница");
                     ); ?>
                 </div>
                 <div class="main-media-photo">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:news.list",
                         "media_photo_main",
                         array(
@@ -816,7 +871,7 @@ $APPLICATION->SetTitle("Главная страница");
                     ) ?>
                 </div>
                 <div class="slider-media" id="slider-media--photo">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         "bitrix:news.list",
                         "media_photo_inner",
                         array(
@@ -849,7 +904,7 @@ $APPLICATION->SetTitle("Главная страница");
                         <h4 class="contact-info__title">Пресс-центр<br> Федерации Хоккея России</h4>
 
                         <div class="contact-info__content">
-                            <? $APPLICATION->IncludeComponent(
+                            <?php $APPLICATION->IncludeComponent(
                                 'digital:hl.list',
                                 'my_hl',
                                 array(
@@ -863,7 +918,7 @@ $APPLICATION->SetTitle("Главная страница");
                     </div>
                 </div>
                 <div class="main-contact__right">
-                    <? $APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", array(
+                    <?php $APPLICATION->IncludeComponent("bitrix:form.result.new", "request_form", array(
                         "CACHE_TIME" => "3600",
                         "CACHE_TYPE" => "A",
                         "CHAIN_ITEM_LINK" => "",
@@ -900,7 +955,7 @@ $APPLICATION->SetTitle("Главная страница");
                 </div>
             </h3>
             <div class="main-partners__content">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "partners",
                     array(
@@ -966,5 +1021,4 @@ $APPLICATION->SetTitle("Главная страница");
             </div>
         </div>
     </div>
-
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

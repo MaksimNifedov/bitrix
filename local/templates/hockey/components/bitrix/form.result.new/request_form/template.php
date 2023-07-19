@@ -1,21 +1,32 @@
-<?
+<?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/* @var array $arParams */
+/* @var array $arResult */
+/* @global CMain $APPLICATION */
+/* @global CUser $USER */
+/* @global CDatabase $DB */
+/* @var CBitrixComponentTemplate $this */
+/* @var string $templateName */
+/* @var string $templateFile */
+/* @var string $templateFolder */
+/* @var string $componentPath */
+/* @var CBitrixComponent $component */
 ?>
 
-<? if ($arResult["isFormNote"] === "Y"): ?>
+<?php if ($arResult["isFormNote"] === "Y"): ?>
     Спасибо, ваша заявка принята!
-<? else: ?>
+<?php else: ?>
     <?= $arResult["FORM_HEADER"] = substr_replace($arResult["FORM_HEADER"], ' class="contact-feedback-form" ', 5, 0); ?>
     <input type="hidden" name="web_form_submit" value="Y">
 
     <h4 class="contact-feedback-form__title"><?= $arResult["FORM_TITLE"] ?></h4>
     <div class="contact-feedback-form__inputs">
 
-        <? if ($arResult["isFormErrors"] === "Y"): ?>
+        <?php if ($arResult["isFormErrors"] === "Y"): ?>
             <div class="errors">
                 <?= $arResult["FORM_ERRORS_TEXT"] ?>
             </div>
-        <? endif; ?>
+        <?php endif; ?>
         <div>
             <label for="contact-feedback-name"
                    class="contact-feedback-form__label"><?= $arResult["QUESTIONS"]['NAME']['CAPTION'] ?></label>
@@ -38,4 +49,4 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
     <button class="contact-feedback-form__btn" type="submit"><?= $arResult["arForm"]["BUTTON"] ?></button>
 
     <?= $arResult["FORM_FOOTER"] ?>
-<? endif; ?>
+<?php endif; ?>

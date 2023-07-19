@@ -1,7 +1,8 @@
-<?
+<?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+/* @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Корзина");
-?><?$APPLICATION->IncludeComponent(
+$APPLICATION->IncludeComponent(
 	"bitrix:sale.basket.basket", 
 	".default", 
 	array(
@@ -70,4 +71,8 @@ $APPLICATION->SetTitle("Корзина");
 		"COMPONENT_TEMPLATE" => ".default"
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+
+
+

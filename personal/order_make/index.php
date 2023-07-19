@@ -1,7 +1,8 @@
-<?
+<?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+/* @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Оформление заказа");
-?><?$APPLICATION->IncludeComponent(
+$APPLICATION->IncludeComponent(
 	"bitrix:sale.order.ajax",
 	"",
 	Array(
@@ -75,4 +76,5 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"USE_PREPAYMENT" => "N",
 		"USE_YM_GOALS" => "N"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

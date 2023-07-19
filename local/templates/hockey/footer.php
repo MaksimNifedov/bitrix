@@ -1,11 +1,13 @@
 <?php
-if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/* @global CMain $APPLICATION */
+?>
 </div>
 <div class="footer">
     <div class="wrapp footer__wrapp">
         <div class="grid-x grid-padding-x footer__content">
             <div class="small-4 footer__copyright">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(
@@ -19,7 +21,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
             </div>
             <div class="footer__socials">
                 <div class="footer-socials">
-                    <? $APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         'digital:hl.list',
                         '.default',
                         array(
@@ -32,7 +34,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                 </div>
             </div>
             <div class="small-4">
-                <? $APPLICATION->IncludeComponent(
+                <?php $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
                     array(

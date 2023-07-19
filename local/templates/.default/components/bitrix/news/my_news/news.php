@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <div class="wrapp">
-    <? $APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:breadcrumb",
         "breadcrumbs_news",
         array()
@@ -24,7 +24,7 @@ $this->setFrameMode(true);
             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/svg/title-line.svg" alt="" class="svg-inject-me">
         </div>
     </h1>
-    <? $APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "page_news",
         array(

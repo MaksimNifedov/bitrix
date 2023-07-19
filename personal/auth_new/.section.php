@@ -1,4 +1,4 @@
-<?
+<?php
 $sSectionName = "Авторизация";
 $arDirProperties = Array(
    "description" => "Авторизация",
@@ -6,4 +6,3 @@ $arDirProperties = Array(
    "title" => "Авторизация",
    "keywords_inner" => "Авторизация"
 );
-?>

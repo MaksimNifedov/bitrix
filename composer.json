@@ -5,6 +5,8 @@
         }
       },
     "require": {
+        "webarchitect609/bitrix-neverinclude": "^1.0",
+        "kint-php/kint": "^5.0",
         "andreyryabin/sprint.migration": "^4.3"
     },
     "config": {

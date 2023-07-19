@@ -1,5 +1,16 @@
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/* @var array $arParams */
+/* @var array $arResult */
+/* @global CMain $APPLICATION */
+/* @global CUser $USER */
+/* @global CDatabase $DB */
+/* @var CBitrixComponentTemplate $this */
+/* @var string $templateName */
+/* @var string $templateFile */
+/* @var string $templateFolder */
+/* @var string $componentPath */
+/* @var CBitrixComponent $component */
 if (!empty($arResult["ITEMS"])) {
     ?>
     <div class="main-news" id="scroll-news">
@@ -37,7 +48,7 @@ if (!empty($arResult["ITEMS"])) {
                         <div class="main-news-last-news__date"><?= $arResult["ITEMS"][0]["DISPLAY_ACTIVE_FROM"] ?></div>
                         <a href="<?= $arResult["ITEMS"][0]["DETAIL_PAGE_URL"] ?>"
                            class="main-news-last-news__title">
-                            <?= $arItem["NAME"] ?>
+                            <?= $arResult["ITEMS"][0]["NAME"] ?>
                         </a>
                     </div>
                 </div>

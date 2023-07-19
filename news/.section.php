@@ -1,5 +1,4 @@
-<?
-$arDirProperties = Array(
-   "ROBOTS" => "index, follow, detail"
+<?php
+$arDirProperties = array(
+    "ROBOTS" => "index, follow, detail"
 );
-?>

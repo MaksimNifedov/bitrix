@@ -1,13 +1,20 @@
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/* @var array $arParams */
+/* @var array $arResult */
+/* @global CMain $APPLICATION */
+/* @global CUser $USER */
+/* @global CDatabase $DB */
+/* @var CBitrixComponentTemplate $this */
+/* @var string $templateName */
+/* @var string $templateFile */
+/* @var string $templateFolder */
+/* @var string $componentPath */
+/* @var CBitrixComponent $component */
 
-/**
- * @global CMain $APPLICATION
- */
 if (empty($arResult))
     return "";
-$strReturn = '';
-$strReturn .= '<nav> <ul class="breadcrumbs">';
+$strReturn = '<nav> <ul class="breadcrumbs">';
 
 $itemSize = count($arResult);
 for ($index = 0; $index < $itemSize; $index++) {
@@ -21,5 +28,5 @@ for ($index = 0; $index < $itemSize; $index++) {
         $strReturn .= '<li>' . $title . '</li>';
     }
 }
-$strReturn .= '</ul></nav>';;
+$strReturn .= '</ul></nav>';
 return $strReturn;

@@ -1,8 +1,8 @@
-<?
-define("HIDE_SIDEBAR", true);
+<?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+/* @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Каталог");
-?><?$APPLICATION->IncludeComponent(
+$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	"custom_catalog", 
 	array(
@@ -85,7 +85,7 @@ $APPLICATION->SetTitle("Каталог");
 		"GIFTS_SHOW_OLD_PRICE" => "N",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "15",
+		"IBLOCK_ID" => IDCatalogIB,
 		"IBLOCK_TYPE" => "hokey_shop",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"INSTANT_RELOAD" => "N",
@@ -212,4 +212,5 @@ $APPLICATION->SetTitle("Каталог");
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
